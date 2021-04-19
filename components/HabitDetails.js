@@ -8,15 +8,20 @@ import {
 } from "../styles";
 import { Spinner } from "native-base";
 
-const HabitDetail = () => {
-  const habit = habitStore.habits[0];
+const HabitDetails = ({ route }) => {
+  const { habit } = route.params;
+  // const habit = habitStore.habits[0];
   if (habitStore.loading) return <Spinner />;
   return (
     <HabitDetailWrapper>
       <HabitDetailImage source={{ uri: habit.image }} />
       <HabitDetailTitle>{habit.name}</HabitDetailTitle>
+      <HabitDetailTitle>{habit.category}</HabitDetailTitle>
+      <HabitDetailTitle>{habit.details}</HabitDetailTitle>
+      {/* <HabitDetailTitle>{habit.daily}</HabitDetailTitle> */}
+      {/* <HabitDetailTitle>{habit.completed}</HabitDetailTitle> */}
     </HabitDetailWrapper>
   );
 };
 
-export default observer(HabitDetail);
+export default observer(HabitDetails);

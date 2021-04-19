@@ -1,8 +1,11 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import HabitDetails from "./components/HabitDetails";
 import HabitList from "./components/HabitList";
 import Home from "./components/Home";
+import habitStore from "./stores/habitStore";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const theme = {
   light: {
@@ -21,13 +24,24 @@ const theme = {
     red: "#ff3232",
   },
 };
+const Stack = createStackNavigator();
+console.log("App -> Stack", Stack);
+const { Navigator, Screen } = createStackNavigator();
 
 export default function App() {
   return (
     <ThemeProvider theme={theme.dark}>
-      {/* <Home /> */}
-      <HabitList />
-      {/* <HabitDetails /> */}
+      <NavigationContainer>
+        <Navigator>
+          <Screen
+            name="Home"
+            component={Home}
+            options={{ headerShown: false }}
+          />
+          <Screen name="HabitList" component={HabitList} />
+          <Screen name="HabitDetails" component={HabitDetails} />
+        </Navigator>
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
