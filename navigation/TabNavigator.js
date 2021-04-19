@@ -1,22 +1,37 @@
-import React, { Profiler } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../components/Home";
 import Create from "../components/Create";
 import Profile from "../components/Profile";
-import Frirnd from "../components/Friend.js";
-// import TabBar from "./TabBar";
-
-// import TabBar from "../components/TabBar";
-// import ProfileNavigator from "./ProfileNavigator";
+// import Frirnd from "../components/Friend.js";
+import TabBar from "./TabBar";
+import Test from "../components/Test";
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Create" component={Create} />
-      <Tab.Screen name="Profile" component={Profile} />
-      <Tab.Screen name="Friend" component={Friend} />
+    <Tab.Navigator tabBar={(props) => <TabBar {...props} />}>
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        initialParams={{ icon: "home" }}
+      />
+      <Tab.Screen
+        name="Create"
+        component={Create}
+        initialParams={{ icon: "plus" }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        initialParams={{ icon: "user" }}
+      />
+      <Tab.Screen
+        name="Test"
+        component={Test}
+        initialParams={{ icon: "user" }}
+      />
+      {/* <Tab.Screen name="Friend" component={Friend} /> */}
     </Tab.Navigator>
   );
 };

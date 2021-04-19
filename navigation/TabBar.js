@@ -1,19 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import { View, StyleSheet, Dimensions, Animated } from "react-native";
-import { useTabBar } from "../contexts/TabBarProvider";
+import React, { useState } from "react";
+import { View, StyleSheet, Dimensions } from "react-native";
 import Tab from "./Tab";
 
 const { width } = Dimensions.get("screen");
 
 const TabBar = ({ state, navigation }) => {
-  const [selected, setSelected] = useState("Home");
+  const [selected, setSelected] = useState("Home"); // start point screen
   const { routes } = state;
-  const renderColor = (currentTab) =>
-    currentTab === selected ? "red" : "black";
-
-  const { showTabBar } = useTabBar();
-
-  const animation = useRef(new Animated.Value(0)).current;
+  const renderColor = (
+    // on tab the icon the color change from black to red
+    currentTab
+  ) => (currentTab === selected ? "red" : "black");
 
   const handlePress = (activeTab, index) => {
     if (state.index !== index) {
@@ -22,31 +19,9 @@ const TabBar = ({ state, navigation }) => {
     }
   };
 
-  const toggleTabBarAnimation = () => {
-    if (showTabBar) {
-      Animated.timing(animation, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: true,
-      }).start();
-    } else {
-      Animated.timing(animation, {
-        toValue: 100,
-        duration: 200,
-        useNativeDriver: true,
-      }).start();
-    }
-  };
-
-  useEffect(() => {
-    toggleTabBarAnimation();
-  }, [showTabBar]);
-
   return (
     <View style={styles.wrapper}>
-      <Animated.View
-        style={[styles.container, { transform: [{ translateY: animation }] }]}
-      >
+      <View style={styles.container}>
         {routes.map((route, index) => (
           <Tab
             tab={route}
@@ -56,7 +31,7 @@ const TabBar = ({ state, navigation }) => {
             key={route.key}
           />
         ))}
-      </Animated.View>
+      </View>
     </View>
   );
 };
