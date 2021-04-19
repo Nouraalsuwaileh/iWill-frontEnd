@@ -5,7 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 const Tab = ({ color, tab, onPress, icon }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      {icon && <AntDesign name="{icon}" size={20} color={color} />}
+      {icon && <AntDesign name={icon} size={20} color={color} />}
       <Text style={{ color }}>{tab.name}</Text>
     </TouchableOpacity>
   );

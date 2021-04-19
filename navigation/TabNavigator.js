@@ -37,3 +37,6 @@ const TabNavigator = () => {
 };
 
 export default TabNavigator;
+
+//icon source
+//https://icons.expo.fyi
