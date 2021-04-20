@@ -2,8 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../components/Home";
 import Create from "../components/Create";
-import Profile from "../components/Profile";
-// import Frirnd from "../components/Friend.js";
+import Profile from "../ProfileScreen/Profile";
 import TabBar from "./TabBar";
 import Test from "../components/Test";
 
@@ -31,7 +30,6 @@ const TabNavigator = () => {
         component={Test}
         initialParams={{ icon: "user" }}
       />
-      {/* <Tab.Screen name="Friend" component={Friend} /> */}
     </Tab.Navigator>
   );
 };
