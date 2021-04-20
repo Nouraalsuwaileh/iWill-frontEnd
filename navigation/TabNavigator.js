@@ -5,6 +5,7 @@ import Create from "../components/Create";
 import Profile from "../ProfileScreen/Profile";
 import TabBar from "./TabBar";
 import Test from "../components/Test";
+import EditProfile from "../ProfileScreen/EditProfile";
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
@@ -16,8 +17,8 @@ const TabNavigator = () => {
         initialParams={{ icon: "home" }}
       />
       <Tab.Screen
-        name="Create"
-        component={Create}
+        name="EditProfile"
+        component={EditProfile}
         initialParams={{ icon: "plus" }}
       />
       <Tab.Screen
