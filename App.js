@@ -6,6 +6,7 @@ import HabitList from "./components/HabitList";
 import Home from "./components/Home";
 import habitStore from "./stores/habitStore";
 import { createStackNavigator } from "@react-navigation/stack";
+import NewHabitForm from "./components/NewHabitForm";
 
 const theme = {
   light: {
@@ -40,6 +41,7 @@ export default function App() {
           />
           <Screen name="HabitList" component={HabitList} />
           <Screen name="HabitDetails" component={HabitDetails} />
+          <Screen name="NewHabitForm" component={NewHabitForm} />
         </Navigator>
       </NavigationContainer>
     </ThemeProvider>
