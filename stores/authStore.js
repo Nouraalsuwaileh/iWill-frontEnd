@@ -22,3 +22,19 @@ class AuthStore {
 const authStore = new AuthStore();
 
 export default authStore;
+
+// import { makeAutoObservable } from "mobx";
+// import instance from "./instance";
+
+// // import { makeObservable, observable, action } from "mobx";
+
+// class authStore {
+//   user = user;
+
+//   constructor() {
+//     makeObservable(this);
+//   }
+// }
+
+// const authStore = new AuthStore();
+// export default authStore;

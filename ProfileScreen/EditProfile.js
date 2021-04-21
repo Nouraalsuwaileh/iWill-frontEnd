@@ -134,10 +134,10 @@ const EditProfile = ({ navigation }) => {
 
         <View style={styles.button}>
           <TouchableOpacity
-            // onPress={() => {
-            //   authStore.signup(user);
-            //   // navigation.navigate("Home");
-            // }}
+            onPress={() => {
+              //   authStore.signup(user);
+              navigation.navigate("Profile");
+            }}
             style={[
               styles.signIn,
               {
