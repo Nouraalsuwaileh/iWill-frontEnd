@@ -1,10 +1,12 @@
 import React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
-import Profile from "./Profile";
-import EditProfile from "./EditProfile";
+import Profile from "../ProfileScreen/Profile";
+import EditProfile from "../ProfileScreen/EditProfile";
 import SignUp from "../components/SignUp";
-import TabNavigator from "../navigation/TabNavigator";
+import TabNavigator from "./TabNavigator";
+import HabitList from "../components/HabitList";
+import HabitDetails from "../components/HabitDetails";
 
 const RootStack = createStackNavigator();
 
@@ -29,6 +31,16 @@ const RootStackProfile = () => (
       options={{ headerShown: false }}
       name="EditProfile"
       component={EditProfile}
+    />
+    <RootStack.Screen
+      options={{ headerShown: true }}
+      name="HabitList"
+      component={HabitList}
+    />
+    <RootStack.Screen
+      options={{ headerShown: true }}
+      name="HabitDetails"
+      component={HabitDetails}
     />
   </RootStack.Navigator>
 );

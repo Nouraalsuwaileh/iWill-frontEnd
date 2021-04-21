@@ -13,7 +13,7 @@ import {
 //libraries
 import Feather from "react-native-vector-icons/Feather";
 import { Entypo } from "@expo/vector-icons";
-import DateTimePicker from "@react-native-community/datetimepicker";
+// import DateTimePicker from "@react-native-community/datetimepicker";
 
 const EditProfile = ({ navigation }) => {
   //date states & functions
@@ -120,7 +120,7 @@ const EditProfile = ({ navigation }) => {
             />
           </TouchableOpacity>
         </View>
-        <View>
+        {/* <View>
           {show && (
             <DateTimePicker
               testID="dateTimePicker"
@@ -130,7 +130,7 @@ const EditProfile = ({ navigation }) => {
               onChange={onChange}
             />
           )}
-        </View>
+        </View> */}
 
         <View style={styles.button}>
           <TouchableOpacity

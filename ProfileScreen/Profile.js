@@ -14,13 +14,13 @@ import { Ionicons, AntDesign, FontAwesome } from "@expo/vector-icons";
 
 export default function Profile({ navigation }) {
   //user state
-  const [user, setUser] = useState({
-    fullname: "",
-    username: "",
-    // password: "",
-    email: "",
-    dateOfBirth: "",
-  });
+  // const [user, setUser] = useState({
+  //   fullname: "",
+  //   username: "",
+  //   // password: "",
+  //   email: "",
+  //   dateOfBirth: "",
+  // });
 
   return (
     <SafeAreaView style={styles.container}>
