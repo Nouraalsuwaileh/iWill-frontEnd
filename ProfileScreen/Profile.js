@@ -13,6 +13,15 @@ import { Ionicons, AntDesign, FontAwesome } from "@expo/vector-icons";
 // import dataStore from "../stores/dataStore";
 
 export default function Profile({ navigation }) {
+  //user state
+  const [user, setUser] = useState({
+    fullname: "",
+    username: "",
+    // password: "",
+    email: "",
+    dateOfBirth: "",
+  });
+
   return (
     <SafeAreaView style={styles.container}>
       {/* <ScrollView showsVerticalScrollIndicator={false}> */}
@@ -50,10 +59,12 @@ export default function Profile({ navigation }) {
 
       <View style={styles.infoContainer}>
         <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
+          {/* onChangeText={(value) => setUser({ ...user, username: value })} */}
           user name
         </Text>
         <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>
-          date of the user
+          {/* onChangeText={(value) => setUser({ ...user, dateOfBirth: value })} */}
+          date Of Birth
         </Text>
       </View>
 
