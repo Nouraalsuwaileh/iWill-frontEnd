@@ -8,6 +8,8 @@ import SignIn from "../components/SignIn";
 import TabNavigator from "./TabNavigator";
 import HabitList from "../components/HabitList";
 import HabitDetails from "../components/HabitDetails";
+import NewHabitForm from "../components/NewHabitForm";
+import NewFeedbackForm from "../components/NewFeedbackForm";
 
 const RootStack = createStackNavigator();
 
@@ -47,6 +49,16 @@ const RootStackProfile = () => (
       options={{ headerShown: true }}
       name="HabitDetails"
       component={HabitDetails}
+    />
+    <RootStack.Screen
+      options={{ headerShown: true }}
+      name="NewHabitForm"
+      component={NewHabitForm}
+    />
+    <RootStack.Screen
+      options={{ headerShown: true }}
+      name="NewFeedbackForm"
+      component={NewFeedbackForm}
     />
   </RootStack.Navigator>
 );
