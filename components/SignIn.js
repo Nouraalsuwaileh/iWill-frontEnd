@@ -56,7 +56,8 @@ const SignIn = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => {
               authStore.signin(user);
-              navigation.navigate("Profile");
+              // navigation.navigate("Home");
+              navigation.replace("tab");
             }}
             style={[
               styles.signIn,
