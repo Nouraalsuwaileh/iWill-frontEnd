@@ -8,7 +8,9 @@ configure({
 
 class HabitStore {
   habits = [];
+  feedbacks = [];
   loading = true;
+  loadingFeedbacks = true;
 
   constructor() {
     makeAutoObservable(this);
@@ -43,6 +45,38 @@ class HabitStore {
       navigation.goBack();
     } catch (error) {
       console.error("HabitStore -> deleteHabit -> error", error);
+    }
+  };
+  fetchFeedbacks = async () => {
+    try {
+      const res = await instance.get("/feedback");
+      this.feedbacks = res.data;
+      this.loadingFeedbacks = false;
+      console.log("fetchFeedbacks response", res.data);
+    } catch (error) {
+      console.error("HabitStore -> fetchFeedbacks -> error", error);
+    }
+  };
+  createFeedback = async (newFeedback) => {
+    try {
+      const res = await instance.post("/feedback", newFeedback);
+      this.fetchFeedbacks();
+      console.log(
+        "HabitStore -> createFeedback -> this.feedbacks",
+        this.feedbacks
+      );
+    } catch (error) {
+      console.error("HabitStore -> createFeedback -> error", error);
+    }
+  };
+  deleteFeedback = async (feedbackId) => {
+    try {
+      await instance.delete(`/feedback/${feedbackId}`);
+      this.feedbacks = this.feedbacks.filter(
+        (feedback) => feedback.id !== feedbackId
+      );
+    } catch (error) {
+      console.error("HabitStore -> deleteHabit-> error", error);
     }
   };
 }

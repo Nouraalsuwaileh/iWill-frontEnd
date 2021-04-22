@@ -1,7 +1,7 @@
 import React from "react";
 import habitStore from "../stores/habitStore";
 import { Text, Button } from "react-native";
-
+import FeedbackList from "./FeedbackList";
 import { observer } from "mobx-react";
 import {
   HabitDetailTitle,
@@ -28,6 +28,7 @@ const HabitDetails = ({ route, navigation }) => {
       <HabitDetailTitle>{habit.details}</HabitDetailTitle>
       {/* <HabitDetailTitle>{habit.daily}</HabitDetailTitle> */}
       {/* <HabitDetailTitle>{habit.completed}</HabitDetailTitle> */}
+      <FeedbackList name={habit.name} navigation={navigation} />
     </HabitDetailWrapper>
   );
 };
