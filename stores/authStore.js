@@ -23,7 +23,7 @@ class AuthStore {
   signin = async (userData) => {
     try {
       const response = await instance.post("/user/signin", userData);
-      console.log(response.data.token);
+      console.log("response token: ", response.data.token);
       const token = response.data.token;
 
       this.user = jwtDecode(token);
@@ -35,7 +35,7 @@ class AuthStore {
 
       // this.checkForToken();
 
-      console.log("user token => ", this.user);
+      console.log("user token => ", this.user, token);
     } catch (error) {
       console.log("AuthStore -> signin -> error", error);
     }
@@ -45,19 +45,3 @@ class AuthStore {
 const authStore = new AuthStore();
 
 export default authStore;
-
-// import { makeAutoObservable } from "mobx";
-// import instance from "./instance";
-
-// // import { makeObservable, observable, action } from "mobx";
-
-// class authStore {
-//   user = user;
-
-//   constructor() {
-//     makeObservable(this);
-//   }
-// }
-
-// const authStore = new AuthStore();
-// export default authStore;

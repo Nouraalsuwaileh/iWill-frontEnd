@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons, AntDesign, FontAwesome } from "@expo/vector-icons";
-// import dataStore from "../stores/dataStore";
+import authStore from "../stores/authStore";
 
 export default function Profile({ navigation }) {
   //user state
@@ -60,11 +60,11 @@ export default function Profile({ navigation }) {
       <View style={styles.infoContainer}>
         <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
           {/* onChangeText={(value) => setUser({ ...user, username: value })} */}
-          user name
+          {authStore.user.fullname}
         </Text>
         <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>
           {/* onChangeText={(value) => setUser({ ...user, dateOfBirth: value })} */}
-          date Of Birth
+          {authStore.user.dateOfBirth}
         </Text>
       </View>
 
@@ -79,7 +79,10 @@ export default function Profile({ navigation }) {
             <Text
               style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
             >
-              Fullname <Text style={{ fontWeight: "400" }}>user name</Text>
+              Username:{" "}
+              <Text style={{ fontWeight: "400" }}>
+                {authStore.user.username}
+              </Text>
             </Text>
           </View>
         </View>
@@ -90,8 +93,8 @@ export default function Profile({ navigation }) {
             <Text
               style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
             >
-              UserEmail{" "}
-              <Text style={{ fontWeight: "400" }}>useremail@gmail.com</Text>
+              Email:{" "}
+              <Text style={{ fontWeight: "400" }}> {authStore.user.email}</Text>
             </Text>
           </View>
         </View>
@@ -109,6 +112,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "HelveticaNeue",
     color: "#52575D",
+    fontSize: "24",
   },
   image: {
     flex: 1,

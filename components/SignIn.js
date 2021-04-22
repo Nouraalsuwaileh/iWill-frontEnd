@@ -58,6 +58,7 @@ const SignIn = ({ navigation }) => {
               authStore.signin(user);
               // navigation.navigate("Home");
               navigation.replace("tab");
+              //console.log(user);
             }}
             style={[
               styles.signIn,
