@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Profile from "../ProfileScreen/Profile";
 import EditProfile from "../ProfileScreen/EditProfile";
 import SignUp from "../components/SignUp";
+import SignIn from "../components/SignIn";
 import TabNavigator from "./TabNavigator";
 import HabitList from "../components/HabitList";
 import HabitDetails from "../components/HabitDetails";
@@ -12,6 +13,11 @@ const RootStack = createStackNavigator();
 
 const RootStackProfile = () => (
   <RootStack.Navigator>
+    <RootStack.Screen
+      options={{ headerShown: false }}
+      name="SignIn"
+      component={SignIn}
+    />
     <RootStack.Screen
       options={{ headerShown: false }}
       name="SignUp"

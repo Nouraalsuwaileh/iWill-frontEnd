@@ -56,7 +56,7 @@ const SignIn = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => {
               authStore.signin(user);
-              // navigation.navigate("Home");
+              navigation.navigate("Profile");
             }}
             style={[
               styles.signIn,
@@ -68,6 +68,25 @@ const SignIn = ({ navigation }) => {
             ]}
           >
             <Text style={[styles.textSign, { color: "#8d063e" }]}>Sign In</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.button}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("SignUp");
+              // navigation.replace("tab");
+            }}
+            style={[
+              styles.signIn,
+              {
+                borderColor: "009387",
+                borderWidth: 1,
+                marginTop: 1,
+              },
+            ]}
+          >
+            <Text style={[styles.textSign, { color: "#8d063e" }]}>Sign Up</Text>
           </TouchableOpacity>
         </View>
       </View>
