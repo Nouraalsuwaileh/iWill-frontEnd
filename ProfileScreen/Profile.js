@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "HelveticaNeue",
     color: "#52575D",
-    fontSize: "24",
   },
   image: {
     flex: 1,
