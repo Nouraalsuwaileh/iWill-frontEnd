@@ -71,6 +71,7 @@ const SignUp = ({ navigation }) => {
             placeholder="Your E-Mail Address"
             style={styles.textInput}
             autoCompleteType="email"
+            autoCapitalize="none"
             keyboardType="email-address"
           />
         </View>
@@ -83,6 +84,7 @@ const SignUp = ({ navigation }) => {
             placeholder="Your Username"
             style={styles.textInput}
             autoCompleteType="username"
+            autoCapitalize="none"
           />
         </View>
 

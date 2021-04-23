@@ -60,11 +60,13 @@ export default function Profile({ navigation }) {
       <View style={styles.infoContainer}>
         <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
           {/* onChangeText={(value) => setUser({ ...user, username: value })} */}
-          {authStore.user.fullname}
+          {authStore.user.fullname
+            ? authStore.user.fullname
+            : "Unauthenticated User"}
         </Text>
         <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>
           {/* onChangeText={(value) => setUser({ ...user, dateOfBirth: value })} */}
-          {authStore.user.dateOfBirth}
+          {authStore.user.dateOfBirth ? authStore.user.dateOfBirth : "DOB"}
         </Text>
       </View>
 
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
   },
   text: {
-    fontFamily: "HelveticaNeue",
+    fontFamily: "sans-serif", //original "HelveticaNeue" caused error
     color: "#52575D",
   },
   image: {

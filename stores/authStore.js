@@ -4,7 +4,8 @@ import jwtDecode from "jwt-decode";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 class AuthStore {
-  user = null;
+  // user = null;
+  user = {};
 
   constructor() {
     makeAutoObservable(this);

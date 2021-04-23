@@ -35,6 +35,7 @@ const SignIn = ({ navigation }) => {
             onChangeText={(value) => setUser({ ...user, username: value })}
             placeholder="Your Username"
             style={styles.textInput}
+            autoCapitalize="none"
             autoCompleteType="username"
           />
         </View>
