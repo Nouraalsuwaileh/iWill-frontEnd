@@ -10,23 +10,21 @@ import {
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons, AntDesign, FontAwesome } from "@expo/vector-icons";
-// import dataStore from "../stores/dataStore";
 
 export default function Profile({ navigation }) {
-  //user state
-  // const [user, setUser] = useState({
-  //   fullname: "",
-  //   username: "",
-  //   // password: "",
-  //   email: "",
-  //   dateOfBirth: "",
-  // });
-
   return (
     <SafeAreaView style={styles.container}>
       {/* <ScrollView showsVerticalScrollIndicator={false}> */}
       <View style={styles.titleBar} /*the edit icone*/>
-        <FontAwesome name="sign-out" size={24} color="black" />
+        <FontAwesome
+          name="sign-out"
+          size={24}
+          color="black"
+          onPress={() => {
+            navigation.replace("SignIn");
+          }}
+        />
+
         <AntDesign
           name="edit"
           size={24}

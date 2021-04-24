@@ -1,8 +1,8 @@
-import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components";
 import { createStackNavigator } from "@react-navigation/stack";
 import RootStackNavigator from "./navigation/RootStackNavigator";
+import React, { useState } from "react";
 
 const theme = {
   light: {
