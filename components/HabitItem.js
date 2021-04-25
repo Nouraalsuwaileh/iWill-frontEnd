@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { CheckBox, Text, StyleSheet, View, Image } from "react-native";
 
 const HabitItem = ({ habit, navigation }) => {
-  const [isSelected, setSelection] = useState(false);
+  const [isSelected, setSelection] = useState(habit.completed);
   return (
     <ListItem
       onPress={() => navigation.navigate("HabitDetails", { habit: habit })}
@@ -16,10 +16,13 @@ const HabitItem = ({ habit, navigation }) => {
       ) : (
         <HabitImage />
       )}
-
       <CheckBox
         value={isSelected}
-        onValueChange={setSelection}
+        onValueChange={(value) => {
+          setSelection(value);
+          habitStore.toggleCompleted(habit.id, value);
+          console.log(habit.completed);
+        }}
         style={styles.checkbox}
       />
 

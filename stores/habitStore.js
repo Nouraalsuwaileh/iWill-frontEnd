@@ -79,12 +79,11 @@ class HabitStore {
       console.error("HabitStore -> deleteHabit-> error", error);
     }
   };
-  markAsCompleted = async (habitId) => {
+  toggleCompleted = async (habitId, status) => {
     try {
-      await instance.put(`/habit/${habitId}`);
-      // await instance.post("/signup", userData).then(res => setToken(res.data.token)).catch(err => console.log(err.message));
+      await instance.put(`/habit/${habitId}`, { completed: status });
     } catch (error) {
-      console.log("HabitStore -> markAsCompleted -> error", error);
+      console.log("HabitStore -> toggleCompleted -> error", error);
     }
   };
 }
