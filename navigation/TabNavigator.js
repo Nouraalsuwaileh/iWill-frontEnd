@@ -1,12 +1,11 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../components/Home";
 // import progrees from "../components/Create";
 import Profile from "../ProfileScreen/Profile";
 import TabBar from "./TabBar";
 import Progrees from "../components/Progrees";
-import EditProfile from "../ProfileScreen/EditProfile";
-import SignUp from "../components/SignUp";
+import HabitList from "../components/HabitList";
+// import Home from "../components/Home";
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
@@ -18,9 +17,9 @@ const TabNavigator = () => {
         initialParams={{ icon: "SignUp" }}
       /> */}
       <Tab.Screen
-        name="Home"
-        component={Home}
-        initialParams={{ icon: "home" }}
+        name="Habit"
+        component={HabitList}
+        initialParams={{ icon: "account-details" }}
       />
       {/* <Tab.Screen
         name="Progrees"
