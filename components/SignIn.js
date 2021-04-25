@@ -24,7 +24,7 @@ const SignIn = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.text_header}>Sign In</Text>
+        {/* <Text style={styles.text_header}>Sign In</Text> */}
       </View>
 
       <View style={styles.footer}>
@@ -101,19 +101,20 @@ export default SignIn;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8d063e",
+    backgroundColor: "white",
   },
   header: {
     flex: 1,
-    justifyContent: "flex-end",
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    // marginTop: 50,
+    // justifyContent: "flex-end",
+    // paddingHorizontal: 20,
+    // paddingBottom: 20,
   },
   footer: {
-    flex: 3,
+    flex: 15,
     backgroundColor: "#fff",
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    // borderTopLeftRadius: 30,
+    // borderTopRightRadius: 30,
     paddingHorizontal: 20,
     paddingVertical: 30,
   },
