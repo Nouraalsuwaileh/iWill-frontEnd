@@ -26,6 +26,7 @@ const RootStackProfile = () => (
       name="SignUp"
       component={SignUp}
     />
+
     <RootStack.Screen
       options={{ headerShown: false }}
       name="tab"

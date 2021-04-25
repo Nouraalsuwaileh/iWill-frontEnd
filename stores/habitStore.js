@@ -79,6 +79,14 @@ class HabitStore {
       console.error("HabitStore -> deleteHabit-> error", error);
     }
   };
+  markAsCompleted = async (habitId) => {
+    try {
+      await instance.put(`/habit/${habitId}`);
+      // await instance.post("/signup", userData).then(res => setToken(res.data.token)).catch(err => console.log(err.message));
+    } catch (error) {
+      console.log("HabitStore -> markAsCompleted -> error", error);
+    }
+  };
 }
 
 const habitStore = new HabitStore();
