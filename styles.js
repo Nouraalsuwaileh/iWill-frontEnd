@@ -7,8 +7,8 @@ export const HomeBackground = styled.ImageBackground`
 `;
 
 export const HabitImage = styled.Image`
-  width: 125;
-  height: 125;
+  width: 25;
+  height: 25;
 `;
 
 export const TopStyling = styled.View`
@@ -89,3 +89,14 @@ export const HabitDetailTitle = styled.Text`
 export const HabitContent = styled.Text`
   margin-top: 5;
 `;
+
+// export const Habitbutton = styled.button`
+//   background-color: #4caf50;
+//   border: none;
+//   color: white;
+//   padding: 15px 32px;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   font-size: 16px;
+// `;
