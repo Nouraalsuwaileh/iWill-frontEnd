@@ -3,7 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
 import Animated from "react-native-reanimated";
 import { ProgressBar, Colors } from "react-native-paper";
-
+import authStore from "../stores/authStore";
+import habitStore from "../stores/habitStore";
 // function useInterval(callback, delay) {
 //   // need to add Boolean
 //   const savedCallback = useRef();
@@ -109,22 +110,26 @@ const MyComponent = () => (
   <View style={styles.container}>
     <ProgressBar
       style={{ marginTop: 300 }}
-      progress={numberOfCompletedTasks / numberOfTasks}
+      // progress={numberOfCompletedTasks / numberOfTasks}
+      progress={habitStore.habits.completed / habitStore.habits.length}
       color={Colors.red800}
     />
   </View>
 );
+// habitStore.habits.length
+// authStore.user.habits.length
+// authStore.user.habits.length
 
 export default MyComponent;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    // justifyContent: "center",
-    alignItems: "center",
-    // paddingTop: Constants.statusBarHeight,
-    // backgroundColor: "#ecf0f1",
-    padding: 20,
+    // flex: 1,
+    // // justifyContent: "center",
+    // alignItems: "center",
+    // // paddingTop: Constants.statusBarHeight,
+    // // backgroundColor: "#ecf0f1",
+    // padding: 20,
   },
   progressBar: {
     height: 20,
