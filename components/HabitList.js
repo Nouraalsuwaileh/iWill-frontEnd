@@ -65,13 +65,11 @@ const HabitList = ({ navigation }) => {
         </View> */}
       </View>
 
-      <View style={styles.habitlist}>
-        <List>{habitList}</List>
+      <List>{habitList}</List>
 
-        {/* <View style={styles.icon}>
+      {/* <View style={styles.icon}>
           <AntDesign name="arrowright" size={24} color="black" />
         </View> */}
-      </View>
     </SafeAreaView>
   );
 };

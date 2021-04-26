@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import authStore from "../stores/authStore";
+import { LinearGradient } from "expo-linear-gradient";
 
 //libraries
 import Feather from "react-native-vector-icons/Feather";
@@ -22,78 +23,87 @@ const SignIn = ({ navigation }) => {
   });
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        {/* <Text style={styles.text_header}>Sign In</Text> */}
+    <LinearGradient
+      colors={["#6E23FB", "#C1D3FE", "#1b1b1e"]}
+      start={[0.1, 0.1]}
+      style={styles.linearGradient}
+    >
+      <View style={styles.container}>
+        <View style={styles.header}>
+          {/* <Text style={styles.text_header}>Sign In</Text> */}
+        </View>
+
+        <View style={styles.footer}>
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
+          <View style={styles.action}>
+            <Feather name="user" size={24} color="#6E23FB" />
+            <TextInput
+              onChangeText={(value) => setUser({ ...user, username: value })}
+              placeholder="Your Username"
+              style={styles.textInput}
+              autoCapitalize="none"
+              autoCompleteType="username"
+            />
+          </View>
+
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
+          <View style={styles.action}>
+            <Entypo name="lock" size={24} color="#6E23FB" />
+            <TextInput
+              onChangeText={(value) => setUser({ ...user, password: value })}
+              placeholder="Your Password"
+              secureTextEntry={true}
+              style={styles.textInput}
+              autoCapitalize="none"
+              autoCompleteType="password"
+            />
+          </View>
+
+          <View style={styles.button}>
+            <TouchableOpacity
+              onPress={() => {
+                authStore.signin(user);
+                // navigation.navigate("Home");
+                navigation.replace("tab");
+              }}
+              style={[
+                styles.signIn,
+                {
+                  borderColor: "009387",
+                  borderWidth: 1,
+                  marginTop: 1,
+                },
+              ]}
+            >
+              <Text style={[styles.textSign, { color: "#6E23FB" }]}>
+                Sign In
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.button}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("SignUp");
+                // navigation.replace("tab");
+              }}
+              // style={[
+              //   styles.signIn,
+              //   {
+              //     borderColor: "009387",
+              //     borderWidth: 1,
+              //     marginTop: 1,
+              //   },
+              // ]}
+            >
+              <Text style={[styles.textSign, { color: "#BFDCF2" }]}>
+                Sign Up
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
-
-      <View style={styles.footer}>
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
-        <View style={styles.action}>
-          <Feather name="user" size={24} color="black" />
-          <TextInput
-            onChangeText={(value) => setUser({ ...user, username: value })}
-            placeholder="Your Username"
-            style={styles.textInput}
-            autoCapitalize="none"
-            autoCompleteType="username"
-          />
-        </View>
-
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
-        <View style={styles.action}>
-          <Entypo name="lock" size={24} color="black" />
-          <TextInput
-            onChangeText={(value) => setUser({ ...user, password: value })}
-            placeholder="Your Password"
-            secureTextEntry={true}
-            style={styles.textInput}
-            autoCapitalize="none"
-            autoCompleteType="password"
-          />
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity
-            onPress={() => {
-              authStore.signin(user);
-              // navigation.navigate("Home");
-              navigation.replace("tab");
-              //console.log(user);
-            }}
-            style={[
-              styles.signIn,
-              {
-                borderColor: "009387",
-                borderWidth: 1,
-                marginTop: 1,
-              },
-            ]}
-          >
-            <Text style={[styles.textSign, { color: "#8d063e" }]}>Sign In</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate("SignUp");
-              // navigation.replace("tab");
-            }}
-            style={[
-              styles.signIn,
-              {
-                borderColor: "009387",
-                borderWidth: 1,
-                marginTop: 1,
-              },
-            ]}
-          >
-            <Text style={[styles.textSign, { color: "#8d063e" }]}>Sign Up</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -102,31 +112,41 @@ export default SignIn;
 //styles
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "white",
+    // flex: 1,
+    // backgroundColor: "#BFDCF2",
   },
   header: {
-    flex: 1,
-    // marginTop: 50,
+    // flex: 1,
+    marginTop: 50,
     // justifyContent: "flex-end",
     // paddingHorizontal: 20,
     // paddingBottom: 20,
   },
+  linearGradient: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   footer: {
-    flex: 15,
-    backgroundColor: "#fff",
-    // borderTopLeftRadius: 30,
-    // borderTopRightRadius: 30,
+    // flex: 15,
+    backgroundColor: "transparent",
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 50,
     paddingHorizontal: 20,
     paddingVertical: 30,
+    width: 350,
+    height: 400,
   },
   text_header: {
-    color: "#fff",
+    color: "#0D2D44",
     fontWeight: "bold",
     fontSize: 30,
   },
   text_footer: {
-    color: "#8d063e",
+    color: "#2C0278",
     fontSize: 18,
   },
   action: {
@@ -144,13 +164,14 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   textInput: {
-    flex: 1,
-    marginTop: Platform.OS === "ios" ? 0 : -12,
+    // flex: 1,
+    // marginTop: Platform.OS === "ios" ? 0 : -12,
+    width: 100,
     paddingLeft: 10,
-    color: "#05375a",
+    // color: "#d6d6d6",
   },
   errorMsg: {
-    color: "#FF0000",
+    color: "#d6d6d6",
     fontSize: 14,
   },
   button: {
