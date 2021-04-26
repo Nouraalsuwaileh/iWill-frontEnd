@@ -38,11 +38,11 @@ const EditProfile = ({ navigation }) => {
 
   //user state
   const [user, setUser] = useState({
-    fullname: "",
-    username: "",
-    password: "",
-    email: "",
-    dateOfBirth: "",
+    fullname: `${authStore.user?.fullname || "full name"}`,
+    // username: `${authStore.user.username}`,
+    // password: "",
+    email: `${authStore.user?.email || "email"}`,
+    dateOfBirth: `${authStore.user?.dateOfBirth || "DOB"}`,
   });
 
   return (
@@ -56,7 +56,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.action}>
           <Feather name="user" size={24} color="black" />
           <TextInput
-            value={authStore.user.username}
+            value={authStore.user?.username || "username"}
             onChangeText={(value) => setUser({ ...user, username: value })}
             placeholder="Sign in to access your data"
             style={styles.textInput_Uneditable}
@@ -65,7 +65,7 @@ const EditProfile = ({ navigation }) => {
           />
         </View>
 
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
+        {/* <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
         <View style={styles.action}>
           <Entypo name="lock" size={24} color="black" />
           <TextInput
@@ -77,13 +77,13 @@ const EditProfile = ({ navigation }) => {
             autoCapitalize="none"
             autoCompleteType="password"
           />
-        </View>
+        </View> */}
 
         <Text style={[styles.text_footer, { marginTop: 20 }]}>Full Name</Text>
         <View style={styles.action}>
           <Feather name="user" size={24} color="black" />
           <TextInput
-            defaultValue={authStore.user.fullname}
+            defaultValue={authStore.user?.fullname || "full name"}
             onChangeText={(value) => setUser({ ...user, fullname: value })}
             placeholder="Sign in to access your data"
             style={styles.textInput}
@@ -95,7 +95,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.action}>
           <Entypo name="email" size={20} color="black" />
           <TextInput
-            defaultValue={authStore.user.email}
+            defaultValue={authStore.user?.email || "email"}
             onChangeText={(value) => setUser({ ...user, email: value })}
             placeholder="Sign in to access your data"
             style={styles.textInput}
@@ -114,11 +114,13 @@ const EditProfile = ({ navigation }) => {
             size={24}
             color="black"
           />
+          {/*** currently updatable as text only. Datepicker disabled. ***/}
           <TouchableOpacity onPress={showDatepicker}>
             <TextInput
-              value={getDateStr(date)}
-              editable={false}
-              // onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
+              defaultValue={authStore.user?.dateOfBirth || "DOB"}
+              // value={getDateStr(date)}
+              // editable={false}
+              onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
               placeholder="MM/DD/YYYY"
               style={styles.textInput}
               autoCapitalize="none"
@@ -140,8 +142,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.button}>
           <TouchableOpacity
             onPress={() => {
-              //   authStore.signup(user);
-              navigation.navigate("Profile");
+              authStore.updateProfile(user, navigation);
             }}
             style={[
               styles.signIn,

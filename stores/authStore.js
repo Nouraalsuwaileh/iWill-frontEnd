@@ -4,8 +4,8 @@ import jwtDecode from "jwt-decode";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 class AuthStore {
-  // user = null;
-  user = {};
+  user = null;
+  // user = {};
 
   constructor() {
     makeAutoObservable(this);
@@ -41,8 +41,41 @@ class AuthStore {
       console.log("AuthStore -> signin -> error", error);
     }
   };
+
+  // fetchProfile = async (userId) => {
+  //   console.log("authStore -> fetchProfile -> user id", userId);
+
+  //   try {
+  //     const response = await instance.get(`/user/profile/${userId}`);
+  //     console.log("authStore -> fetchedProfile", response.data);
+  //   } catch (error) {
+  //     console.log("authStore -> fetchProfile -> error", error);
+  //   }
+  // };
+
+  updateProfile = async (updatedUserData, navigation) => {
+    console.log(
+      "authStore -> updateProfile -> updatedProfile",
+      updatedUserData
+    );
+
+    try {
+      // await instance.put(`/user/edit/${this.user.id}`, updatedUserData);
+      const response = await instance.put(
+        `/user/edit/${this.user.id}`,
+        updatedUserData
+      );
+      navigation.navigate("Profile");
+      const editedUser = response.data;
+      console.log("authStore -> edited User", editedUser);
+      for (const key in this.user) this.user[key] = editedUser[key];
+    } catch (error) {
+      console.log("authStore -> updateProfile -> error", error);
+    }
+  };
 }
 
 const authStore = new AuthStore();
+//authStore.fetchProfile(44); //test fetch
 
 export default authStore;
