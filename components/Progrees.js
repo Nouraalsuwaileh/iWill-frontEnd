@@ -87,10 +87,10 @@ import habitStore from "../stores/habitStore";
 
 let tasks = [
   {
-    completed: false,
+    completed: true,
   },
   {
-    completed: false,
+    completed: true,
   },
   {
     completed: false,
@@ -100,25 +100,27 @@ let tasks = [
   },
 ];
 
-let numberOfTasks = tasks.length;
-let numberOfCompletedTasks = tasks.filter((task) => task.completed == true)
-  .length;
+// let numberOfTasks = tasks.length;
+// let numberOfCompletedTasks = tasks.filter((task) => task.completed == true)
+//   .length;
 
+let numberOfTasks = habitStore.habits.length;
+let numberOfCompletedTasks = habitStore.habits.filter(
+  (habits) => habitStore.habits.completed == true
+).length;
 // progess={numberOfCompletedTasks/numberOfTasks}
 
 const MyComponent = () => (
   <View style={styles.container}>
     <ProgressBar
       style={{ marginTop: 300 }}
-      // progress={numberOfCompletedTasks / numberOfTasks}
-      progress={habitStore.habits.completed / habitStore.habits.length}
+      progress={numberOfCompletedTasks / numberOfTasks}
+      // progress={habitStore.habits.completed / habitStore.habits.length}
+
       color={Colors.red800}
     />
   </View>
 );
-// habitStore.habits.length
-// authStore.user.habits.length
-// authStore.user.habits.length
 
 export default MyComponent;
 
