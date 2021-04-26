@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-// import authStore from "../stores/authStore";
+import authStore from "../stores/authStore";
 
 //libraries
 import Feather from "react-native-vector-icons/Feather";
@@ -38,11 +38,11 @@ const EditProfile = ({ navigation }) => {
 
   //user state
   const [user, setUser] = useState({
-    fullname: "",
-    username: "",
-    password: "",
-    email: "",
-    dateOfBirth: "",
+    fullname: `${authStore.user?.fullname || "full name"}`,
+    // username: `${authStore.user.username}`,
+    // password: "",
+    email: `${authStore.user?.email || "email"}`,
+    dateOfBirth: `${authStore.user?.dateOfBirth || "DOB"}`,
   });
 
   return (
@@ -52,12 +52,40 @@ const EditProfile = ({ navigation }) => {
       </View>
 
       <View style={styles.footer}>
+        <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
+        <View style={styles.action}>
+          <Feather name="user" size={24} color="black" />
+          <TextInput
+            value={authStore.user?.username || "username"}
+            onChangeText={(value) => setUser({ ...user, username: value })}
+            placeholder="Sign in to access your data"
+            style={styles.textInput_Uneditable}
+            autoCompleteType="username"
+            editable={false}
+          />
+        </View>
+
+        {/* <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
+        <View style={styles.action}>
+          <Entypo name="lock" size={24} color="black" />
+          <TextInput
+            defaultValue={authStore.user.password}
+            onChangeText={(value) => setUser({ ...user, password: value })}
+            placeholder="New Password?"
+            secureTextEntry={true}
+            style={styles.textInput}
+            autoCapitalize="none"
+            autoCompleteType="password"
+          />
+        </View> */}
+
         <Text style={[styles.text_footer, { marginTop: 20 }]}>Full Name</Text>
         <View style={styles.action}>
           <Feather name="user" size={24} color="black" />
           <TextInput
+            defaultValue={authStore.user?.fullname || "full name"}
             onChangeText={(value) => setUser({ ...user, fullname: value })}
-            placeholder="Your Name"
+            placeholder="Sign in to access your data"
             style={styles.textInput}
             autoCapitalize="words"
           />
@@ -67,35 +95,12 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.action}>
           <Entypo name="email" size={20} color="black" />
           <TextInput
+            defaultValue={authStore.user?.email || "email"}
             onChangeText={(value) => setUser({ ...user, email: value })}
-            placeholder="Your E-Mail Address"
+            placeholder="Sign in to access your data"
             style={styles.textInput}
             autoCompleteType="email"
             keyboardType="email-address"
-          />
-        </View>
-
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
-        <View style={styles.action}>
-          <Feather name="user" size={24} color="black" />
-          <TextInput
-            onChangeText={(value) => setUser({ ...user, username: value })}
-            placeholder="Your Username"
-            style={styles.textInput}
-            autoCompleteType="username"
-          />
-        </View>
-
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
-        <View style={styles.action}>
-          <Entypo name="lock" size={24} color="black" />
-          <TextInput
-            onChangeText={(value) => setUser({ ...user, password: value })}
-            placeholder="Your Password"
-            secureTextEntry={true}
-            style={styles.textInput}
-            autoCapitalize="none"
-            autoCompleteType="password"
           />
         </View>
 
@@ -109,11 +114,13 @@ const EditProfile = ({ navigation }) => {
             size={24}
             color="black"
           />
+          {/*** currently updatable as text only. Datepicker disabled. ***/}
           <TouchableOpacity onPress={showDatepicker}>
             <TextInput
-              value={getDateStr(date)}
-              editable={false}
-              // onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
+              defaultValue={authStore.user?.dateOfBirth || "DOB"}
+              // value={getDateStr(date)}
+              // editable={false}
+              onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
               placeholder="MM/DD/YYYY"
               style={styles.textInput}
               autoCapitalize="none"
@@ -135,8 +142,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.button}>
           <TouchableOpacity
             onPress={() => {
-              //   authStore.signup(user);
-              navigation.navigate("Profile");
+              authStore.updateProfile(user, navigation);
             }}
             style={[
               styles.signIn,
@@ -205,6 +211,12 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS === "ios" ? 0 : -12,
     paddingLeft: 10,
     color: "#05375a",
+  },
+  textInput_Uneditable: {
+    flex: 1,
+    marginTop: Platform.OS === "ios" ? 0 : -12,
+    paddingLeft: 10,
+    color: "grey",
   },
   errorMsg: {
     color: "#FF0000",

@@ -35,6 +35,7 @@ const SignIn = ({ navigation }) => {
             onChangeText={(value) => setUser({ ...user, username: value })}
             placeholder="Your Username"
             style={styles.textInput}
+            autoCapitalize="none"
             autoCompleteType="username"
           />
         </View>
@@ -58,6 +59,7 @@ const SignIn = ({ navigation }) => {
               authStore.signin(user);
               // navigation.navigate("Home");
               navigation.replace("tab");
+              //console.log(user);
             }}
             style={[
               styles.signIn,

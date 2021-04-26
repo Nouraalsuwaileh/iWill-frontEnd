@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,11 +7,20 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Button,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons, AntDesign, FontAwesome } from "@expo/vector-icons";
+import authStore from "../stores/authStore";
+import { observer } from "mobx-react";
 
-export default function Profile({ navigation }) {
+const Profile = ({ navigation }) => {
+  // useEffect(() => {
+  //   authStore.fetchProfile(authStore.user.id);
+  // }, []);
+
+  if (!authStore.user) return navigation.replace("SignIn");
+
   return (
     <SafeAreaView style={styles.container}>
       {/* <ScrollView showsVerticalScrollIndicator={false}> */}
@@ -32,7 +41,6 @@ export default function Profile({ navigation }) {
           onPress={() => navigation.navigate("EditProfile")}
         />
       </View>
-
       <View style={{ alignSelf: "center" }}>
         <View style={styles.profileImage} /*profile image*/>
           <Image
@@ -58,11 +66,13 @@ export default function Profile({ navigation }) {
       <View style={styles.infoContainer}>
         <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
           {/* onChangeText={(value) => setUser({ ...user, username: value })} */}
-          user name
+          {authStore.user?.fullname || "Unauthorized"}
+          {/* {fetchedProfile.fullname} */}
         </Text>
         <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>
           {/* onChangeText={(value) => setUser({ ...user, dateOfBirth: value })} */}
-          date Of Birth
+          {authStore.user?.dateOfBirth || "Unauthorized"}
+          {/* {user.dateOfBirth} */}
         </Text>
       </View>
 
@@ -77,7 +87,10 @@ export default function Profile({ navigation }) {
             <Text
               style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
             >
-              Fullname <Text style={{ fontWeight: "400" }}>user name</Text>
+              Username:{" "}
+              <Text style={{ fontWeight: "400" }}>
+                {authStore.user?.username || "Unauthorized"}
+              </Text>
             </Text>
           </View>
         </View>
@@ -88,8 +101,11 @@ export default function Profile({ navigation }) {
             <Text
               style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
             >
-              UserEmail{" "}
-              <Text style={{ fontWeight: "400" }}>useremail@gmail.com</Text>
+              Email:{" "}
+              <Text style={{ fontWeight: "400" }}>
+                {" "}
+                {authStore.user?.email || "Unauthorized"}
+              </Text>
             </Text>
           </View>
         </View>
@@ -97,7 +113,9 @@ export default function Profile({ navigation }) {
       {/* </ScrollView> */}
     </SafeAreaView>
   );
-}
+};
+
+export default observer(Profile);
 
 const styles = StyleSheet.create({
   container: {
@@ -105,7 +123,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
   },
   text: {
-    fontFamily: "HelveticaNeue",
+    fontFamily: "sans-serif", //original "HelveticaNeue" caused error
     color: "#52575D",
   },
   image: {
