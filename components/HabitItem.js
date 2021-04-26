@@ -1,26 +1,26 @@
 import { ListItem } from "native-base";
 import React, { useState } from "react";
-import { CheckBox, Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image } from "react-native";
+import { Checkbox } from "react-native-paper";
 import { HabitItemStyled, HabitImage } from "../styles";
 import habitStore from "../stores/habitStore";
 import HabitDetails from "./HabitDetails";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 const HabitItem = ({ habit, navigation }) => {
-  const [isSelected, setSelection] = useState(habit.completed);
+  // const [isSelected, setSelection] = useState(habit.completed);
+  const [checked, setChecked] = useState(habit.completed);
   return (
     <ListItem
       onPress={() => navigation.navigate("HabitDetails", { habit: habit })}
     >
-      <MaterialCommunityIcons name="account-details" size={24} color="black" />
-
       {/* {habit.image ? (
         <HabitImage source={{ uri: habit.image }} />
       ) : (
         <HabitImage />
-      )}
-       )} */}
-      <CheckBox
+      )} */}
+
+      {/* <CheckBox
         value={isSelected}
         onValueChange={(value) => {
           setSelection(value);
@@ -28,7 +28,17 @@ const HabitItem = ({ habit, navigation }) => {
           console.log(habit.completed);
         }}
         style={styles.checkbox}
+      /> */}
+
+      <Checkbox
+        status={checked ? "checked" : "unchecked"}
+        onPress={() => {
+          setChecked(!checked);
+          habitStore.toggleCompleted(habit.id, !checked);
+        }}
       />
+
+      <MaterialCommunityIcons name="account-details" size={24} color="black" />
       <HabitItemStyled>
         {habit.name}
         {/* <View style={styles.titleBar}>
