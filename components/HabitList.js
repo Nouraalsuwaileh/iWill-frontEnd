@@ -49,16 +49,7 @@ const HabitList = ({ navigation }) => {
   ));
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.titleBar}>
-        <ScrollView>
-          <Ionicons
-            name="add-circle-sharp"
-            size={50}
-            color="black"
-            onPress={() => navigation.navigate("NewHabitForm")}
-          />
-        </ScrollView>
-      </View>
+      <View style={styles.titleBar}></View>
       <View style={styles.text}>
         {/* <View style={styles.expanded}>
           <Text>Add Habit</Text>
@@ -66,6 +57,14 @@ const HabitList = ({ navigation }) => {
       </View>
 
       <List>{habitList}</List>
+      <ScrollView>
+        <Ionicons
+          name="add-circle-sharp"
+          size={50}
+          color="black"
+          onPress={() => navigation.navigate("NewHabitForm")}
+        />
+      </ScrollView>
 
       {/* <View style={styles.icon}>
           <AntDesign name="arrowright" size={24} color="black" />

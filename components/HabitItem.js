@@ -6,7 +6,7 @@ import { HabitItemStyled, HabitImage } from "../styles";
 import habitStore from "../stores/habitStore";
 import HabitDetails from "./HabitDetails";
 import { AntDesign } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+// import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { color } from "react-native-reanimated";
 const HabitItem = ({ habit, navigation }) => {
   // const [isSelected, setSelection] = useState(habit.completed);
@@ -42,7 +42,7 @@ const HabitItem = ({ habit, navigation }) => {
         }}
         style={styles.checkbox}
       />
-      <MaterialCommunityIcons name="account-details" size={24} color="black" />
+      {/* <MaterialCommunityIcons name="account-details" size={24} color="black" /> */}
 
       <HabitItemStyled>{habit.name}</HabitItemStyled>
     </ListItem>
