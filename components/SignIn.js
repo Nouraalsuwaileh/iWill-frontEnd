@@ -24,7 +24,7 @@ const SignIn = ({ navigation }) => {
 
   return (
     <LinearGradient
-      colors={["#6E23FB", "#C1D3FE", "#1b1b1e"]}
+      colors={["#a1c4fd", "#cfd9df", "#c2e9fb", "#93a5cf"]}
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
@@ -36,7 +36,7 @@ const SignIn = ({ navigation }) => {
         <View style={styles.footer}>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
           <View style={styles.action}>
-            <Feather name="user" size={24} color="#6E23FB" />
+            <Feather name="user" size={24} color="#0b090a" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, username: value })}
               placeholder="Your Username"
@@ -48,7 +48,7 @@ const SignIn = ({ navigation }) => {
 
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
           <View style={styles.action}>
-            <Entypo name="lock" size={24} color="#6E23FB" />
+            <Entypo name="lock" size={24} color="#0b090a" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, password: value })}
               placeholder="Your Password"
@@ -75,7 +75,7 @@ const SignIn = ({ navigation }) => {
                 },
               ]}
             >
-              <Text style={[styles.textSign, { color: "#6E23FB" }]}>
+              <Text style={[styles.textSign, { color: "#0b090a" }]}>
                 Sign In
               </Text>
             </TouchableOpacity>
@@ -96,7 +96,7 @@ const SignIn = ({ navigation }) => {
               //   },
               // ]}
             >
-              <Text style={[styles.textSign, { color: "#BFDCF2" }]}>
+              <Text style={[styles.textSign, { color: "#0b090a" }]}>
                 Sign Up
               </Text>
             </TouchableOpacity>
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   text_footer: {
-    color: "#2C0278",
+    color: "#0b090a",
     fontSize: 18,
   },
   action: {
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   textInput: {
     // flex: 1,
     // marginTop: Platform.OS === "ios" ? 0 : -12,
-    width: 100,
+    width: 200,
     paddingLeft: 10,
     // color: "#d6d6d6",
   },

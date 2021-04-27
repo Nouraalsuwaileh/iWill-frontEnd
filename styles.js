@@ -43,8 +43,8 @@ export const ButtonStyled = styled.Text`
 
 export const HabitItemStyled = styled.Text`
   /* color: ${(props) => props.theme.mainColor}; */
-  color: #8d063e;
-  font-size: 15;
+  color: #0b090a;
+  font-size: 20;
   margin-top: 10;
   margin-bottom: 10;
   margin-left: 10;
@@ -68,7 +68,7 @@ export const HabitItemStyled = styled.Text`
 // `;
 
 export const HabitDetailWrapper = styled.View`
-  margin-top: 50;
+  margin-top: 100;
   /* margin-bottom: 35; */
 `;
 

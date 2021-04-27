@@ -4,9 +4,9 @@ import { List, Content } from "native-base";
 import { observer } from "mobx-react";
 import React from "react";
 import { Text, View, Button, Alert, ScrollView } from "react-native";
-
+import { Spinner } from "native-base";
 const FeedbackList = ({ name, navigation }) => {
-  if (habitStore.loadingreviews) return <Text>Loading...</Text>;
+  if (habitStore.loadingFeedbacks) return <Spinner />;
 
   const habitFeedbacks = habitStore.feedbacks.filter(
     (feedback) => feedback.habit.name === name
@@ -27,7 +27,7 @@ const FeedbackList = ({ name, navigation }) => {
             navigation.navigate("NewFeedbackForm", { habitId: habitFound.id })
           }
           title="Add Feedback"
-          color="#8d063e"
+          color="#a1c4fd"
         >
           Add Feedback!
         </Button>

@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import authStore from "../stores/authStore";
+import { LinearGradient } from "expo-linear-gradient";
 
 //libraries
 import Feather from "react-native-vector-icons/Feather";
@@ -46,26 +47,31 @@ const EditProfile = ({ navigation }) => {
   });
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.text_header}>Edit Profile</Text>
-      </View>
-
-      <View style={styles.footer}>
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
-        <View style={styles.action}>
-          <Feather name="user" size={24} color="black" />
-          <TextInput
-            value={authStore.user?.username || "username"}
-            onChangeText={(value) => setUser({ ...user, username: value })}
-            placeholder="Sign in to access your data"
-            style={styles.textInput_Uneditable}
-            autoCompleteType="username"
-            editable={false}
-          />
+    <LinearGradient
+      colors={["#ffffff", "#cfd9df"]}
+      start={[0.1, 0.1]}
+      style={styles.linearGradient}
+    >
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.text_header}>Edit Profile</Text>
         </View>
 
-        {/* <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
+        <View style={styles.footer}>
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
+          <View style={styles.action}>
+            <Feather name="user" size={24} color="black" />
+            <TextInput
+              value={authStore.user?.username || "username"}
+              onChangeText={(value) => setUser({ ...user, username: value })}
+              placeholder="Sign in to access your data"
+              style={styles.textInput_Uneditable}
+              autoCompleteType="username"
+              editable={false}
+            />
+          </View>
+
+          {/* <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
         <View style={styles.action}>
           <Entypo name="lock" size={24} color="black" />
           <TextInput
@@ -79,55 +85,57 @@ const EditProfile = ({ navigation }) => {
           />
         </View> */}
 
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Full Name</Text>
-        <View style={styles.action}>
-          <Feather name="user" size={24} color="black" />
-          <TextInput
-            defaultValue={authStore.user?.fullname || "full name"}
-            onChangeText={(value) => setUser({ ...user, fullname: value })}
-            placeholder="Sign in to access your data"
-            style={styles.textInput}
-            autoCapitalize="words"
-          />
-        </View>
-
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>E-Mail</Text>
-        <View style={styles.action}>
-          <Entypo name="email" size={20} color="black" />
-          <TextInput
-            defaultValue={authStore.user?.email || "email"}
-            onChangeText={(value) => setUser({ ...user, email: value })}
-            placeholder="Sign in to access your data"
-            style={styles.textInput}
-            autoCompleteType="email"
-            keyboardType="email-address"
-          />
-        </View>
-
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>
-          Date of Birth
-        </Text>
-        <View style={styles.action}>
-          <Feather
-            onPress={showDatepicker}
-            name="calendar"
-            size={24}
-            color="black"
-          />
-          {/*** currently updatable as text only. Datepicker disabled. ***/}
-          <TouchableOpacity onPress={showDatepicker}>
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Full Name</Text>
+          <View style={styles.action}>
+            <Feather name="user" size={24} color="black" />
             <TextInput
-              defaultValue={authStore.user?.dateOfBirth || "DOB"}
-              // value={getDateStr(date)}
-              // editable={false}
-              onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
-              placeholder="MM/DD/YYYY"
+              defaultValue={authStore.user?.fullname || "full name"}
+              onChangeText={(value) => setUser({ ...user, fullname: value })}
+              placeholder="Sign in to access your data"
               style={styles.textInput}
-              autoCapitalize="none"
+              autoCapitalize="words"
             />
-          </TouchableOpacity>
-        </View>
-        {/* <View>
+          </View>
+
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>E-Mail</Text>
+          <View style={styles.action}>
+            <Entypo name="email" size={20} color="black" />
+            <TextInput
+              defaultValue={authStore.user?.email || "email"}
+              onChangeText={(value) => setUser({ ...user, email: value })}
+              placeholder="Sign in to access your data"
+              style={styles.textInput}
+              autoCompleteType="email"
+              keyboardType="email-address"
+            />
+          </View>
+
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>
+            Date of Birth
+          </Text>
+          <View style={styles.action}>
+            <Feather
+              onPress={showDatepicker}
+              name="calendar"
+              size={24}
+              color="black"
+            />
+            {/*** currently updatable as text only. Datepicker disabled. ***/}
+            <TouchableOpacity onPress={showDatepicker}>
+              <TextInput
+                defaultValue={authStore.user?.dateOfBirth || "DOB"}
+                // value={getDateStr(date)}
+                // editable={false}
+                onChangeText={(value) =>
+                  setUser({ ...user, dateOfBirth: value })
+                }
+                placeholder="MM/DD/YYYY"
+                style={styles.textInput}
+                autoCapitalize="none"
+              />
+            </TouchableOpacity>
+          </View>
+          {/* <View>
           {show && (
             <DateTimePicker
               testID="dateTimePicker"
@@ -139,25 +147,26 @@ const EditProfile = ({ navigation }) => {
           )}
         </View> */}
 
-        <View style={styles.button}>
-          <TouchableOpacity
-            onPress={() => {
-              authStore.updateProfile(user, navigation);
-            }}
-            style={[
-              styles.signIn,
-              {
-                borderColor: "009387",
-                borderWidth: 1,
-                marginTop: 1,
-              },
-            ]}
-          >
-            <Text style={[styles.textSign, { color: "#8d063e" }]}>Save</Text>
-          </TouchableOpacity>
+          <View style={styles.button}>
+            <TouchableOpacity
+              onPress={() => {
+                authStore.updateProfile(user, navigation);
+              }}
+              style={[
+                styles.signIn,
+                {
+                  borderColor: "009387",
+                  borderWidth: 1,
+                  marginTop: 1,
+                },
+              ]}
+            >
+              <Text style={[styles.textSign, { color: "#0D2D44" }]}>Save</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -166,8 +175,9 @@ export default EditProfile;
 //styles
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#8d063e",
+    // flex: 1,
+    // backgroundColor: "#8d063e",
+    marginBottom: 100,
   },
   header: {
     flex: 1,
@@ -236,5 +246,33 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: "bold",
+  },
+  linearGradient: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  footer: {
+    // flex: 15,
+    backgroundColor: "transparent",
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 50,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    width: 350,
+    height: 500,
+  },
+  text_header: {
+    color: "#0D2D44",
+    fontWeight: "bold",
+    fontSize: 30,
+    textAlign: "center",
+  },
+  text_footer: {
+    color: "#0b090a",
+    fontSize: 18,
   },
 });

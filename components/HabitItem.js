@@ -31,20 +31,31 @@ const HabitItem = ({ habit, navigation }) => {
         }}
         style={styles.checkbox}
       /> */}
+      <View style={styles.icon}>
+        <Checkbox
+          status={checked ? "checked" : "unchecked"}
+          onPress={() => {
+            habitStore.toggleCompleted(habit.id, !checked);
+            setChecked(!checked);
 
-      <Checkbox
-        status={checked ? "checked" : "unchecked"}
-        onPress={() => {
-          habitStore.toggleCompleted(habit.id, !checked);
-          setChecked(!checked);
-
-          console.log(habit.completed);
-        }}
-        style={styles.checkbox}
-      />
+            console.log(habit.completed);
+          }}
+          style={styles.checkbox}
+        />
+      </View>
       {/* <MaterialCommunityIcons name="account-details" size={24} color="black" /> */}
 
-      <HabitItemStyled>{habit.name}</HabitItemStyled>
+      <HabitItemStyled>
+        {habit.name}
+
+        <AntDesign
+          name="delete"
+          size={24}
+          color="black"
+          style={styles.icon2}
+          onPress={() => habitStore.deleteHabit(habit.id, navigation)}
+        />
+      </HabitItemStyled>
     </ListItem>
   );
 };
@@ -72,5 +83,25 @@ const styles = StyleSheet.create({
     // marginTop: 24,
     // marginHorizontal: 16,
     // marginRight: 150,
+  },
+  icon: {
+    // color: "rgba(31,178,204,1)",
+    fontSize: 30,
+    alignSelf: "center",
+    marginLeft: 50,
+    // marginTop: 150,
+    // alignItems: "center",
+  },
+  icon2: {
+    // color: "rgba(31,178,204,1)",
+    // fontSize: 30,
+    // alignSelf: "stretch",
+    // alignItems: "center",
+    marginLeft: 70,
+    // alignItems: "flex-end",
+    // marginLeft: 100,
+    // marginLeft: 40,
+    // marginTop: 150,
+    // alignItems: "center",
   },
 });

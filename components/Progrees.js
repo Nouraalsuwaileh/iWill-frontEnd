@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
 import Animated from "react-native-reanimated";
 import { ProgressBar, Colors } from "react-native-paper";
+import habitStore from "../stores/habitStore";
+import { LinearGradient } from "expo-linear-gradient";
 
 // function useInterval(callback, delay) {
 //   // need to add Boolean
@@ -86,45 +88,58 @@ import { ProgressBar, Colors } from "react-native-paper";
 
 let tasks = [
   {
-    completed: false,
-  },
-  {
-    completed: false,
-  },
-  {
-    completed: false,
+    completed: true,
   },
   {
     completed: false,
   },
 ];
 
-let numberOfTasks = tasks.length;
-let numberOfCompletedTasks = tasks.filter((task) => task.completed == true)
-  .length;
+// let numberOfTasks = tasks.length;
+// let numberOfCompletedTasks = tasks.filter((task) => task.completed == true)
+//   .length;
+// let numberOfTasks = habitStore.habits.length;
+// let numberOfCompletedTasks = habitStore.habits.filter(
+//   (habits) => habitStore.habits.completed == true
+// ).length;
 
 // progess={numberOfCompletedTasks/numberOfTasks}
 
-const MyComponent = () => (
-  <View style={styles.container}>
-    <ProgressBar
-      style={{ marginTop: 300 }}
-      progress={numberOfCompletedTasks / numberOfTasks}
-      color={Colors.red800}
-    />
-  </View>
-);
+const MyComponent = ({ habit }) => {
+  let numberOfTasks = habitStore.habits.length;
+  let numberOfCompletedTasks = habitStore.habits.filter((habit) => {
+    habit.completed.length;
+  });
+  return (
+    <View style={styles.container}>
+      <LinearGradient
+        colors={["#ffffff", "#cfd9df"]}
+        start={[0.1, 0.1]}
+        style={styles.linearGradient}
+      >
+        <View style={styles.footer}>
+          <ProgressBar
+            style={{ marginTop: 300 }}
+            // progress={habitStore.habits.completed / habitStore.habits.length}
+            progress={numberOfCompletedTasks / numberOfTasks}
+            color={Colors.red800}
+          />
+        </View>
+      </LinearGradient>
+    </View>
+  );
+};
 
 export default MyComponent;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     // justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     // paddingTop: Constants.statusBarHeight,
     // backgroundColor: "#ecf0f1",
-    padding: 20,
+    // padding: 20,
   },
   progressBar: {
     height: 20,
@@ -133,5 +148,33 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderWidth: 2,
     borderRadius: 5,
+  },
+  linearGradient: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  footer: {
+    // flex: 15,
+    backgroundColor: "transparent",
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 50,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    width: 350,
+    height: 500,
+  },
+  text_header: {
+    color: "#0D2D44",
+    fontWeight: "bold",
+    fontSize: 30,
+    textAlign: "center",
+  },
+  text_footer: {
+    color: "#0b090a",
+    fontSize: 18,
   },
 });

@@ -32,7 +32,7 @@ const TabNavigator = () => {
         initialParams={{ icon: "user" }}
       />
       <Tab.Screen
-        name="Progrees"
+        name="Progress"
         component={Progrees}
         initialParams={{ icon: "plus" }}
       />

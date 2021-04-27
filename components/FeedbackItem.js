@@ -2,6 +2,7 @@ import { ListItem } from "native-base";
 import React from "react";
 import { Text, View, Image, Button } from "react-native";
 import habitStore from "../stores/habitStore";
+import { AntDesign } from "@expo/vector-icons";
 
 // Styling
 // import { ImageBackground } from "react-native";
@@ -11,15 +12,16 @@ const FeedbackItem = ({ feedback, navigation }) => {
   return (
     <>
       <ListItem>
-        <Button
-          onPress={() => habitStore.deleteFeedback(feedback.id, navigation)}
-          title="Delete Feedback"
-          color="#8d063e"
-        >
-          Delete Feedback!
-        </Button>
         {/* <Text> {feedback.user.username}</Text> */}
-        <HabitItemStyled>{feedback.comment}</HabitItemStyled>
+        <HabitItemStyled>
+          {feedback.comment}
+          <AntDesign
+            name="delete"
+            size={24}
+            color="black"
+            onPress={() => habitStore.deleteFeedback(feedback.id, navigation)}
+          />
+        </HabitItemStyled>
       </ListItem>
     </>
   );
