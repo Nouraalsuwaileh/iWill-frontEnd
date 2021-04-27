@@ -105,7 +105,7 @@ let tasks = [
 
 // progess={numberOfCompletedTasks/numberOfTasks}
 
-const MyComponent = () => {
+const progress = () => {
   let numberOfTasks = habitStore.habits.length;
   let numberOfCompletedTasks = habitStore.habits.filter(
     (habit) => habit.completed == true

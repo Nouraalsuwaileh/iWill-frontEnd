@@ -14,10 +14,9 @@ import { List, Spinner } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import progress from "../components/Progress";
-
+//
 const HabitList = ({ navigation }) => {
-  if (habitStore.loading) return <Spinner />;
+  // if (habitStore.loading) return <Spinner />;
   const habitList = habitStore.habits.map((habit) => (
     <HabitItem habit={habit} key={habit.id} navigation={navigation} />
   ));
