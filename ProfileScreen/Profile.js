@@ -73,12 +73,12 @@ const Profile = ({ navigation }) => {
         <View style={styles.infoContainer}>
           <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
             {/* onChangeText={(value) => setUser({ ...user, username: value })} */}
-            {authStore.user?.fullname || "Unauthorized"}
+            {authStore.user?.fullname || "Name"}
             {/* {fetchedProfile.fullname} */}
           </Text>
           <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>
             {/* onChangeText={(value) => setUser({ ...user, dateOfBirth: value })} */}
-            {authStore.user?.dateOfBirth || "Unauthorized"}
+            {authStore.user?.dateOfBirth || "MM/DD/YYYY"}
             {/* {user.dateOfBirth} */}
           </Text>
         </View>
@@ -96,7 +96,7 @@ const Profile = ({ navigation }) => {
               >
                 Username:{" "}
                 <View style={styles.info}>
-                  <Text>{authStore.user?.username || "Unauthorized"}</Text>
+                  <Text>{authStore.user?.username || "Username"}</Text>
                 </View>
               </Text>
             </View>
@@ -111,7 +111,7 @@ const Profile = ({ navigation }) => {
                 Email:{" "}
                 <Text style={{ fontWeight: "400" }}>
                   {" "}
-                  {authStore.user?.email || "Unauthorized"}
+                  {authStore.user?.email || "E-Mail"}
                 </Text>
               </Text>
             </View>
