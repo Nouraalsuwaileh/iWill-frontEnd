@@ -13,6 +13,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons, AntDesign, FontAwesome } from "@expo/vector-icons";
 import authStore from "../stores/authStore";
 import { observer } from "mobx-react";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Profile = ({ navigation }) => {
   // useEffect(() => {
@@ -22,96 +23,103 @@ const Profile = ({ navigation }) => {
   if (!authStore.user) return navigation.replace("SignIn");
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* <ScrollView showsVerticalScrollIndicator={false}> */}
-      <View style={styles.titleBar} /*the edit icone*/>
-        <FontAwesome
-          name="sign-out"
-          size={24}
-          color="black"
-          onPress={() => {
-            navigation.replace("SignIn");
-          }}
-        />
+    <LinearGradient
+      colors={["#ffffff", "#cfd9df"]}
+      start={[0.1, 0.1]}
+      style={styles.linearGradient}
+    >
+      <SafeAreaView style={styles.container}>
+        {/* <ScrollView showsVerticalScrollIndicator={false}> */}
+        <View style={styles.titleBar} /*the edit icone*/>
+          <FontAwesome
+            name="sign-out"
+            size={24}
+            color="black"
+            onPress={() => {
+              navigation.replace("SignIn");
+            }}
+          />
 
-        <AntDesign
-          name="edit"
-          size={24}
-          color="black"
-          onPress={() => navigation.navigate("EditProfile")}
-        />
-      </View>
-      <View style={{ alignSelf: "center" }}>
-        <View style={styles.profileImage} /*profile image*/>
-          <Image
-            source={require("../image/icon_f.png")}
-            style={styles.image}
-            resizeMode="center"
-          ></Image>
-        </View>
-        <View style={styles.dm} /*chart icon */>
-          <AntDesign name="barschart" size={18} color="#DFD8C8" />
-        </View>
-        <View style={styles.active} /*the green */></View>
-        <View style={styles.add}>
-          <Ionicons // the + icone
-            name="ios-add"
-            size={48}
-            color="#DFD8C8"
-            style={{ marginTop: 6, marginLeft: 2 }}
+          <AntDesign
+            name="edit"
+            size={24}
+            color="black"
+            onPress={() => navigation.navigate("EditProfile")}
           />
         </View>
-      </View>
 
-      <View style={styles.infoContainer}>
-        <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
-          {/* onChangeText={(value) => setUser({ ...user, username: value })} */}
-          {authStore.user?.fullname || "Unauthorized"}
-          {/* {fetchedProfile.fullname} */}
-        </Text>
-        <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>
-          {/* onChangeText={(value) => setUser({ ...user, dateOfBirth: value })} */}
-          {authStore.user?.dateOfBirth || "Unauthorized"}
-          {/* {user.dateOfBirth} */}
-        </Text>
-      </View>
+        <View style={{ alignSelf: "center" }}>
+          <View style={styles.profileImage} /*profile image*/>
+            <Image
+              source={require("../image/icon_f.png")}
+              style={styles.image}
+              resizeMode="center"
+            ></Image>
+          </View>
+          <View style={styles.dm} /*chart icon */>
+            <AntDesign name="barschart" size={18} color="#DFD8C8" />
+          </View>
 
-      <Text style={[styles.subText, styles.recent, { fontSize: 15 }]}>
-        User Information
-      </Text>
-
-      <View style={{ alignItems: "center" }}>
-        <View style={styles.recentItem}>
-          <View style={styles.activityIndicator}></View>
-          <View style={{ width: 250 }}>
-            <Text
-              style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
-            >
-              Username:{" "}
-              <Text style={{ fontWeight: "400" }}>
-                {authStore.user?.username || "Unauthorized"}
-              </Text>
-            </Text>
+          <View style={styles.add}>
+            <Ionicons // the + icone
+              name="ios-add"
+              size={48}
+              color="#DFD8C8"
+              style={{ marginTop: 6, marginLeft: 2 }}
+            />
           </View>
         </View>
 
-        <View style={styles.recentItem}>
-          <View style={styles.activityIndicator}></View>
-          <View style={{ width: 250 }}>
-            <Text
-              style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
-            >
-              Email:{" "}
-              <Text style={{ fontWeight: "400" }}>
-                {" "}
-                {authStore.user?.email || "Unauthorized"}
+        <View style={styles.infoContainer}>
+          <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>
+            {/* onChangeText={(value) => setUser({ ...user, username: value })} */}
+            {authStore.user?.fullname || "Unauthorized"}
+            {/* {fetchedProfile.fullname} */}
+          </Text>
+          <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>
+            {/* onChangeText={(value) => setUser({ ...user, dateOfBirth: value })} */}
+            {authStore.user?.dateOfBirth || "Unauthorized"}
+            {/* {user.dateOfBirth} */}
+          </Text>
+        </View>
+
+        <Text style={[styles.subText, styles.recent, { fontSize: 15 }]}>
+          User Information
+        </Text>
+
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.recentItem}>
+            <View style={styles.activityIndicator}></View>
+            <View style={{ width: 250 }}>
+              <Text
+                style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
+              >
+                Username:{" "}
+                <View style={styles.info}>
+                  <Text>{authStore.user?.username || "Unauthorized"}</Text>
+                </View>
               </Text>
-            </Text>
+            </View>
+          </View>
+
+          <View style={styles.recentItem}>
+            <View style={styles.activityIndicator}></View>
+            <View style={{ width: 250 }}>
+              <Text
+                style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
+              >
+                Email:{" "}
+                <Text style={{ fontWeight: "400" }}>
+                  {" "}
+                  {authStore.user?.email || "Unauthorized"}
+                </Text>
+              </Text>
+            </View>
           </View>
         </View>
-      </View>
-      {/* </ScrollView> */}
-    </SafeAreaView>
+        {/* </ScrollView> */}
+      </SafeAreaView>
+    </LinearGradient>
   );
 };
 
@@ -119,8 +127,9 @@ export default observer(Profile);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#FFF",
+    // flex: 1,
+    // backgroundColor: "#FFF",
+    marginBottom: 130,
   },
   text: {
     fontFamily: "sans-serif", //original "HelveticaNeue" caused error
@@ -134,8 +143,9 @@ const styles = StyleSheet.create({
   titleBar: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 24,
-    marginHorizontal: 16,
+    // marginBottom: 100,
+    // marginTop: 24,
+    // marginHorizontal: 16,
     // marginRight: 50,
   },
   subText: {
@@ -149,7 +159,7 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 100,
     overflow: "hidden",
-    marginTop: 40,
+    marginBottom: 70,
   },
   dm: {
     backgroundColor: "#41444B",
@@ -182,27 +192,28 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 100,
   },
   infoContainer: {
     alignSelf: "center",
     alignItems: "center",
-    marginTop: 16,
   },
   statsContainer: {
     flexDirection: "row",
     alignSelf: "center",
     marginTop: 32,
   },
-  statsBox: {
-    alignItems: "center",
-    flex: 1,
-  },
-  mediaImageContainer: {
-    width: 180,
-    height: 200,
-    borderRadius: 12,
-    overflow: "hidden",
-    marginHorizontal: 10,
+  // statsBox: {
+  //   alignItems: "center",
+  //   // flex: 1,
+  // },
+  info: {
+    // width: 180,
+    // height: 200,
+    // borderRadius: 12,
+    // overflow: "hidden",
+    // marginHorizontal: 10,
+    // marginBottom: 30,
   },
   recent: {
     marginLeft: 78,
@@ -221,7 +232,35 @@ const styles = StyleSheet.create({
     height: 12,
     width: 12,
     borderRadius: 6,
-    marginTop: 3,
+    // marginBottom: 50,
     marginRight: 20,
+  },
+  linearGradient: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  footer: {
+    // flex: 15,
+    backgroundColor: "transparent",
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 50,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    width: 350,
+    height: 500,
+  },
+  text_header: {
+    color: "#0D2D44",
+    fontWeight: "bold",
+    fontSize: 30,
+    textAlign: "center",
+  },
+  text_footer: {
+    color: "#0b090a",
+    fontSize: 18,
   },
 });

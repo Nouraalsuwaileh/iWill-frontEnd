@@ -45,7 +45,17 @@ const HabitItem = ({ habit, navigation }) => {
       </View>
       {/* <MaterialCommunityIcons name="account-details" size={24} color="black" /> */}
 
-      <HabitItemStyled>{habit.name}</HabitItemStyled>
+      <HabitItemStyled>
+        {habit.name}
+
+        <AntDesign
+          name="delete"
+          size={24}
+          color="black"
+          style={styles.icon2}
+          onPress={() => habitStore.deleteHabit(habit.id, navigation)}
+        />
+      </HabitItemStyled>
     </ListItem>
   );
 };
@@ -78,7 +88,19 @@ const styles = StyleSheet.create({
     // color: "rgba(31,178,204,1)",
     fontSize: 30,
     alignSelf: "center",
-    marginLeft: 40,
+    marginLeft: 50,
+    // marginTop: 150,
+    // alignItems: "center",
+  },
+  icon2: {
+    // color: "rgba(31,178,204,1)",
+    // fontSize: 30,
+    // alignSelf: "stretch",
+    // alignItems: "center",
+    marginLeft: 70,
+    // alignItems: "flex-end",
+    // marginLeft: 100,
+    // marginLeft: 40,
     // marginTop: 150,
     // alignItems: "center",
   },

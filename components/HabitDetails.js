@@ -24,7 +24,7 @@ const HabitDetails = ({ route, navigation }) => {
     >
       <HabitDetailWrapper>
         {/* <HabitDetailImage source={{ uri: habit.image }} /> */}
-        <DeleteButton habit={habit} navigation={navigation} />
+        {/* <DeleteButton habit={habit} navigation={navigation} /> */}
         <HabitDetailTitle>{habit.name}</HabitDetailTitle>
         <HabitDetailTitle>{habit.category}</HabitDetailTitle>
         <HabitDetailTitle>{habit.details}</HabitDetailTitle>

@@ -39,7 +39,7 @@ const HabitList = ({ navigation }) => {
           <View style={styles.icon}>
             <Ionicons
               name="add-circle-sharp"
-              size={50}
+              size={60}
               color="black"
               onPress={() => navigation.navigate("NewHabitForm")}
             />
