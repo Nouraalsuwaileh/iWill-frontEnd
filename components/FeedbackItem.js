@@ -14,7 +14,7 @@ const FeedbackItem = ({ feedback, navigation }) => {
         <Button
           onPress={() => habitStore.deleteFeedback(feedback.id, navigation)}
           title="Delete Feedback"
-          color="#8d063e"
+          color="#a1c4fd"
         >
           Delete Feedback!
         </Button>

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
 import Animated from "react-native-reanimated";
 import { ProgressBar, Colors } from "react-native-paper";
+import habitStore from "../stores/habitStore";
 
 // function useInterval(callback, delay) {
 //   // need to add Boolean
@@ -102,6 +103,10 @@ let tasks = [
 let numberOfTasks = tasks.length;
 let numberOfCompletedTasks = tasks.filter((task) => task.completed == true)
   .length;
+// let numberOfTasks = habitStore.habits.length;
+// let numberOfCompletedTasks = habitStore.habits.filter(
+//   (habits) => habitStore.habits.completed == true
+// ).length;
 
 // progess={numberOfCompletedTasks/numberOfTasks}
 
@@ -109,7 +114,8 @@ const MyComponent = () => (
   <View style={styles.container}>
     <ProgressBar
       style={{ marginTop: 300 }}
-      progress={numberOfCompletedTasks / numberOfTasks}
+      progress={habitStore.habits.completed / habitStore.habits.length}
+      // progress={numberOfCompletedTasks / numberOfTasks}
       color={Colors.red800}
     />
   </View>
@@ -119,12 +125,12 @@ export default MyComponent;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     // justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     // paddingTop: Constants.statusBarHeight,
     // backgroundColor: "#ecf0f1",
-    padding: 20,
+    // padding: 20,
   },
   progressBar: {
     height: 20,

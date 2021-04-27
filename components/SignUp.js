@@ -13,6 +13,8 @@ import authStore from "../stores/authStore";
 //libraries
 import Feather from "react-native-vector-icons/Feather";
 import { Entypo } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+
 // import DateTimePicker from "@react-native-community/datetimepicker";
 
 const SignUp = ({ navigation }) => {
@@ -46,83 +48,88 @@ const SignUp = ({ navigation }) => {
   });
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.text_header}>Welcome!</Text>
-      </View>
-
-      <View style={styles.footer}>
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Full Name</Text>
-        <View style={styles.action}>
-          <Feather name="user" size={24} color="black" />
-          <TextInput
-            onChangeText={(value) => setUser({ ...user, fullname: value })}
-            placeholder="Your Name"
-            style={styles.textInput}
-            autoCapitalize="words"
-          />
+    <LinearGradient
+      colors={["#a1c4fd", "#cfd9df", "#c2e9fb", "#93a5cf"]}
+      start={[0.1, 0.1]}
+      style={styles.linearGradient}
+    >
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.text_header}>Welcome!</Text>
         </View>
 
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>E-Mail</Text>
-        <View style={styles.action}>
-          <Entypo name="email" size={20} color="black" />
-          <TextInput
-            onChangeText={(value) => setUser({ ...user, email: value })}
-            placeholder="Your E-Mail Address"
-            style={styles.textInput}
-            autoCompleteType="email"
-            autoCapitalize="none"
-            keyboardType="email-address"
-          />
-        </View>
-
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
-        <View style={styles.action}>
-          <Feather name="user" size={24} color="black" />
-          <TextInput
-            onChangeText={(value) => setUser({ ...user, username: value })}
-            placeholder="Your Username"
-            style={styles.textInput}
-            autoCompleteType="username"
-            autoCapitalize="none"
-          />
-        </View>
-
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
-        <View style={styles.action}>
-          <Entypo name="lock" size={24} color="black" />
-          <TextInput
-            onChangeText={(value) => setUser({ ...user, password: value })}
-            placeholder="Your Password"
-            secureTextEntry={true}
-            style={styles.textInput}
-            autoCapitalize="none"
-            autoCompleteType="password"
-          />
-        </View>
-
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>
-          Date of Birth
-        </Text>
-        <View style={styles.action}>
-          <Feather
-            onPress={showDatepicker}
-            name="calendar"
-            size={24}
-            color="black"
-          />
-          <TouchableOpacity onPress={showDatepicker}>
+        <View style={styles.footer}>
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Full Name</Text>
+          <View style={styles.action}>
+            <Feather name="user" size={24} color="black" />
             <TextInput
-              value={getDateStr(date)}
-              editable={false}
-              // onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
-              placeholder="MM/DD/YYYY"
+              onChangeText={(value) => setUser({ ...user, fullname: value })}
+              placeholder="Your Name"
               style={styles.textInput}
+              autoCapitalize="words"
+            />
+          </View>
+
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>E-Mail</Text>
+          <View style={styles.action}>
+            <Entypo name="email" size={20} color="black" />
+            <TextInput
+              onChangeText={(value) => setUser({ ...user, email: value })}
+              placeholder="Your E-Mail Address"
+              style={styles.textInput}
+              autoCompleteType="email"
+              autoCapitalize="none"
+              keyboardType="email-address"
+            />
+          </View>
+
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
+          <View style={styles.action}>
+            <Feather name="user" size={24} color="black" />
+            <TextInput
+              onChangeText={(value) => setUser({ ...user, username: value })}
+              placeholder="Your Username"
+              style={styles.textInput}
+              autoCompleteType="username"
               autoCapitalize="none"
             />
-          </TouchableOpacity>
-        </View>
-        {/* <View>
+          </View>
+
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
+          <View style={styles.action}>
+            <Entypo name="lock" size={24} color="black" />
+            <TextInput
+              onChangeText={(value) => setUser({ ...user, password: value })}
+              placeholder="Your Password"
+              secureTextEntry={true}
+              style={styles.textInput}
+              autoCapitalize="none"
+              autoCompleteType="password"
+            />
+          </View>
+
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>
+            Date of Birth
+          </Text>
+          <View style={styles.action}>
+            <Feather
+              onPress={showDatepicker}
+              name="calendar"
+              size={24}
+              color="black"
+            />
+            <TouchableOpacity onPress={showDatepicker}>
+              <TextInput
+                value={getDateStr(date)}
+                editable={false}
+                // onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
+                placeholder="MM/DD/YYYY"
+                style={styles.textInput}
+                autoCapitalize="none"
+              />
+            </TouchableOpacity>
+          </View>
+          {/* <View>
           {show && (
             <DateTimePicker
               testID="dateTimePicker"
@@ -134,26 +141,29 @@ const SignUp = ({ navigation }) => {
           )}
         </View> */}
 
-        <View style={styles.button}>
-          <TouchableOpacity
-            onPress={() => {
-              authStore.signup(user);
-              navigation.replace("tab");
-            }}
-            style={[
-              styles.signIn,
-              {
-                borderColor: "009387",
-                borderWidth: 1,
-                marginTop: 1,
-              },
-            ]}
-          >
-            <Text style={[styles.textSign, { color: "#8d063e" }]}>Sign Up</Text>
-          </TouchableOpacity>
+          <View style={styles.button}>
+            <TouchableOpacity
+              onPress={() => {
+                authStore.signup(user);
+                navigation.replace("tab");
+              }}
+              style={[
+                styles.signIn,
+                {
+                  borderColor: "009387",
+                  borderWidth: 1,
+                  marginTop: 1,
+                },
+              ]}
+            >
+              <Text style={[styles.textSign, { color: "#0b090a" }]}>
+                Sign Up
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -162,30 +172,42 @@ export default SignUp;
 //styles
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#8d063e",
+    // flex: 1,
+    // backgroundColor: "#BFDCF2",
   },
   header: {
-    flex: 1,
-    justifyContent: "flex-end",
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    // flex: 1,
+    marginTop: 50,
+    // justifyContent: "flex-end",
+    // paddingHorizontal: 20,
+    // paddingBottom: 20,
   },
+  linearGradient: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   footer: {
-    flex: 3,
-    backgroundColor: "#fff",
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    // flex: 15,
+    backgroundColor: "transparent",
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 50,
     paddingHorizontal: 20,
     paddingVertical: 30,
+    width: 350,
+    height: 550,
   },
   text_header: {
-    color: "#fff",
+    color: "#0D2D44",
     fontWeight: "bold",
     fontSize: 30,
+    textAlign: "center",
   },
   text_footer: {
-    color: "#8d063e",
+    color: "#0b090a",
     fontSize: 18,
   },
   action: {
@@ -203,13 +225,14 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   textInput: {
-    flex: 1,
-    marginTop: Platform.OS === "ios" ? 0 : -12,
+    // flex: 1,
+    // marginTop: Platform.OS === "ios" ? 0 : -12,
+    width: 200,
     paddingLeft: 10,
-    color: "#05375a",
+    // color: "#d6d6d6",
   },
   errorMsg: {
-    color: "#FF0000",
+    color: "#d6d6d6",
     fontSize: 14,
   },
   button: {

@@ -14,6 +14,7 @@ import { version } from "react/cjs/react.development";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 
 const NewHabitForm = ({ navigation }) => {
   const [habit, setHabit] = useState({
@@ -28,53 +29,60 @@ const NewHabitForm = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.text_header}>Add Habit !!</Text>
-      </View>
-      <View style={styles.footer}>
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Habit Name</Text>
-        <View style={styles.action}>
-          <MaterialIcons
-            name="drive-file-rename-outline"
-            size={24}
-            color="black"
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Habit Name"
-            onChangeText={(value) => setHabit({ ...habit, name: value })}
-            value={habit.name}
-            autoCorrect={false}
-          />
-        </View>
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Category</Text>
-        <View style={styles.action}>
-          <AntDesign name="switcher" size={24} color="black" />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Category"
-            onChangeText={(value) => setHabit({ ...habit, category: value })}
-            value={habit.category}
-            autoCorrect={false}
-          />
-        </View>
-        <Text style={[styles.text_footer, { marginTop: 20 }]}>Details</Text>
-        <View style={styles.action}>
-          <MaterialCommunityIcons
-            name="account-details-outline"
-            size={24}
-            color="black"
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Details"
-            multiline
-            numberOfLines={4}
-            onChangeText={(value) => setHabit({ ...habit, details: value })}
-            value={habit.details}
-          />
-        </View>
-        {/* <Text style={[styles.text_footer, { marginTop: 20 }]}>URL</Text>
+      <LinearGradient
+        colors={["#ffffff", "#cfd9df"]}
+        start={[0.1, 0.1]}
+        style={styles.linearGradient}
+      >
+        {/* <View style={styles.header}>
+          <Text style={styles.text_header}>Add Habit !!</Text>
+        </View> */}
+        <View style={styles.footer}>
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>
+            Habit Name
+          </Text>
+          <View style={styles.action}>
+            <MaterialIcons
+              name="drive-file-rename-outline"
+              size={24}
+              color="black"
+            />
+            <TextInput
+              style={styles.textInput}
+              placeholder="Habit Name"
+              onChangeText={(value) => setHabit({ ...habit, name: value })}
+              value={habit.name}
+              autoCorrect={false}
+            />
+          </View>
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Category</Text>
+          <View style={styles.action}>
+            <AntDesign name="switcher" size={24} color="black" />
+            <TextInput
+              style={styles.textInput}
+              placeholder="Category"
+              onChangeText={(value) => setHabit({ ...habit, category: value })}
+              value={habit.category}
+              autoCorrect={false}
+            />
+          </View>
+          <Text style={[styles.text_footer, { marginTop: 20 }]}>Details</Text>
+          <View style={styles.action}>
+            <MaterialCommunityIcons
+              name="account-details-outline"
+              size={24}
+              color="black"
+            />
+            <TextInput
+              style={styles.textInput}
+              placeholder="Details"
+              multiline
+              numberOfLines={4}
+              onChangeText={(value) => setHabit({ ...habit, details: value })}
+              value={habit.details}
+            />
+          </View>
+          {/* <Text style={[styles.text_footer, { marginTop: 20 }]}>URL</Text>
         <View style={styles.action}>
           <Feather name="user" size={24} color="black" />
 
@@ -87,24 +95,25 @@ const NewHabitForm = ({ navigation }) => {
             autoCorrect={false}
           />
         </View> */}
-      </View>
+        </View>
 
-      <Button
-        title="Save New Habit"
-        style={styles.textSign}
-        // color="#8d063e"
-        onPress={() => {
-          habitStore.createHabit(habit);
-          navigation.goBack();
-        }}
-      />
+        <Button
+          title="Save New Habit"
+          style={styles.textSign}
+          color="#a1c4fd"
+          onPress={() => {
+            habitStore.createHabit(habit);
+            navigation.goBack();
+          }}
+        />
+      </LinearGradient>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: "#fff",
 
     // backgroundColor: "",
@@ -119,6 +128,23 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
+  },
+  linearGradient: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.95,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  footer: {
+    // flex: 15,
+    backgroundColor: "transparent",
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 50,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    width: 350,
+    height: 550,
   },
   text_footer: {
     color: "black",
