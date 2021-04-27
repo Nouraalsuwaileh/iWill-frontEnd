@@ -105,11 +105,12 @@ let tasks = [
 
 // progess={numberOfCompletedTasks/numberOfTasks}
 
-const MyComponent = ({ habit }) => {
+const MyComponent = () => {
   let numberOfTasks = habitStore.habits.length;
-  let numberOfCompletedTasks = habitStore.habits.filter((habit) => {
-    habit.completed.length;
-  });
+  let numberOfCompletedTasks = habitStore.habits.filter(
+    (habit) => habit.completed == true
+  ).length;
+
   return (
     <View style={styles.container}>
       <LinearGradient
