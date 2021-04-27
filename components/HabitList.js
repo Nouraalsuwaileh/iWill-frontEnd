@@ -14,6 +14,7 @@ import { List, Spinner } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import progress from "../components/Progress";
 
 const HabitList = ({ navigation }) => {
   if (habitStore.loading) return <Spinner />;
@@ -33,7 +34,6 @@ const HabitList = ({ navigation }) => {
           <Text>Add Habit</Text>
         </View> */}
         </View>
-
         <List>{habitList}</List>
         <ScrollView>
           <View style={styles.icon}>
@@ -45,7 +45,6 @@ const HabitList = ({ navigation }) => {
             />
           </View>
         </ScrollView>
-
         {/* <View style={styles.icon}>
           <AntDesign name="arrowright" size={24} color="black" />
         </View> */}

@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // import progrees from "../components/Create";
 import Profile from "../ProfileScreen/Profile";
 import TabBar from "./TabBar";
-import Progrees from "../components/Progrees";
+import Progress from "../components/Progress";
 import HabitList from "../components/HabitList";
 // import Home from "../components/Home";
 
@@ -39,7 +39,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Progress"
-        component={Progrees}
+        component={Progress}
         initialParams={{ icon: "plus" }}
       />
     </Tab.Navigator>

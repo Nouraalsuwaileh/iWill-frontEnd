@@ -6,6 +6,8 @@ import { HabitItemStyled, HabitImage } from "../styles";
 import habitStore from "../stores/habitStore";
 import HabitDetails from "./HabitDetails";
 import { AntDesign } from "@expo/vector-icons";
+import { observer } from "mobx-react";
+
 // import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { color } from "react-native-reanimated";
 const HabitItem = ({ habit, navigation }) => {
@@ -33,10 +35,12 @@ const HabitItem = ({ habit, navigation }) => {
       /> */}
       <View style={styles.icon}>
         <Checkbox
-          status={checked ? "checked" : "unchecked"}
+          // status={checked ? "checked" : "unchecked"}
+          status={habit.completed ? "checked" : "unchecked"}
           onPress={() => {
-            habitStore.toggleCompleted(habit.id, !checked);
-            setChecked(!checked);
+            habitStore.toggleCompleted(habit.id, !habit.completed);
+            // setChecked(!checked);
+            habit.completed = !habit.completed;
 
             console.log(habit.completed);
           }}
@@ -59,7 +63,7 @@ const HabitItem = ({ habit, navigation }) => {
     </ListItem>
   );
 };
-export default HabitItem;
+export default observer(HabitItem);
 
 const styles = StyleSheet.create({
   container: {

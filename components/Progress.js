@@ -5,7 +5,7 @@ import Animated from "react-native-reanimated";
 import { ProgressBar, Colors } from "react-native-paper";
 import habitStore from "../stores/habitStore";
 import { LinearGradient } from "expo-linear-gradient";
-
+import { observer } from "mobx-react";
 // function useInterval(callback, delay) {
 //   // need to add Boolean
 //   const savedCallback = useRef();
@@ -131,7 +131,7 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default observer(progress);
 
 const styles = StyleSheet.create({
   container: {
