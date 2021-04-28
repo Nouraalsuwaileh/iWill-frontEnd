@@ -15,6 +15,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+// import { Picker } from "@react-native-picker/picker";
 
 const NewHabitForm = ({ navigation }) => {
   const [habit, setHabit] = useState({
@@ -26,6 +27,8 @@ const NewHabitForm = ({ navigation }) => {
     // completed: "",
     // userId: 0,
   });
+
+  // const [selectedLanguage, setSelectedLanguage] = useState();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -66,6 +69,15 @@ const NewHabitForm = ({ navigation }) => {
               autoCorrect={false}
             />
           </View>
+          {/* <Picker
+            selectedValue={selectedLanguage}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedLanguage(itemValue)
+            }
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+          </Picker> */}
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Details</Text>
           <View style={styles.action}>
             <MaterialCommunityIcons
