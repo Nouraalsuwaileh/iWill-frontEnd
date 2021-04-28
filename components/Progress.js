@@ -14,7 +14,7 @@ const progress = () => {
   return (
     <View style={styles.container}>
       <View style={styles.footer}>
-        <Text style={styles.text}>Your Progress </Text>
+        <Text style={styles.text}> Progress </Text>
         <ProgressBar
           // style={{ width: 200 }}
           progress={numberOfCompletedTasks / numberOfTasks}

@@ -51,7 +51,10 @@ const Profile = ({ navigation }) => {
         <View style={{ alignSelf: "center" }}>
           <View style={styles.profileImage} /*profile image*/>
             <Image
-              source={require("../image/icon_f.png")}
+              // source={require("../image/icon_f.png")}
+              // source={{ uri: authStore.user?.photo }}
+              source={require("../image/woman.jpg")}
+              // source={require("../image/iWill.png")}
               style={styles.image}
               resizeMode="center"
             ></Image>
