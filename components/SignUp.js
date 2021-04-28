@@ -15,7 +15,7 @@ import Feather from "react-native-vector-icons/Feather";
 import { Entypo } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
-// import DateTimePicker from "@react-native-community/datetimepicker";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 const SignUp = ({ navigation }) => {
   //date states & functions
@@ -122,24 +122,26 @@ const SignUp = ({ navigation }) => {
               <TextInput
                 value={getDateStr(date)}
                 editable={false}
-                // onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
-                placeholder="MM/DD/YYYY"
+                // onChangeText={(value) =>
+                // setUser({ ...user, dateOfBirth: value })
+                // }
+                placeholder="DD/MM/YYYY"
                 style={styles.textInput}
                 autoCapitalize="none"
               />
             </TouchableOpacity>
           </View>
-          {/* <View>
-          {show && (
-            <DateTimePicker
-              testID="dateTimePicker"
-              value={date}
-              mode="date"
-              display="default"
-              onChange={onChange}
-            />
-          )}
-        </View> */}
+          <View>
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode="date"
+                display="default"
+                onChange={onChange}
+              />
+            )}
+          </View>
 
           <View style={styles.button}>
             <TouchableOpacity
@@ -157,7 +159,7 @@ const SignUp = ({ navigation }) => {
               ]}
             >
               <Text style={[styles.textSign, { color: "#0b090a" }]}>
-                Sign Up
+                Create Account
               </Text>
             </TouchableOpacity>
           </View>

@@ -15,6 +15,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import DropDownPicker from "react-native-dropdown-picker";
+import Icon from "react-native-vector-icons/Feather";
 
 const NewHabitForm = ({ navigation }) => {
   const [habit, setHabit] = useState({
@@ -66,6 +68,7 @@ const NewHabitForm = ({ navigation }) => {
               autoCorrect={false}
             />
           </View>
+
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Details</Text>
           <View style={styles.action}>
             <MaterialCommunityIcons

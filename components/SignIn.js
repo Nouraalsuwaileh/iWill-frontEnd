@@ -6,6 +6,7 @@ import {
   Platform,
   TextInput,
   TouchableOpacity,
+  Image,
 } from "react-native";
 
 import authStore from "../stores/authStore";
@@ -14,6 +15,7 @@ import { LinearGradient } from "expo-linear-gradient";
 //libraries
 import Feather from "react-native-vector-icons/Feather";
 import { Entypo } from "@expo/vector-icons";
+import HomeBackground from "../styles";
 
 const SignIn = ({ navigation }) => {
   //user state
@@ -28,11 +30,18 @@ const SignIn = ({ navigation }) => {
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
+      {/* <View style={styles.image}> */}
+      <Image
+        style={{
+          height: 250,
+          width: 250,
+          marginBottom: -60,
+        }}
+        source={require("../image/iWill.png")}
+        height={10}
+      />
+      {/* </View> */}
       <View style={styles.container}>
-        <View style={styles.header}>
-          {/* <Text style={styles.text_header}>Sign In</Text> */}
-        </View>
-
         <View style={styles.footer}>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
           <View style={styles.action}>
@@ -45,7 +54,6 @@ const SignIn = ({ navigation }) => {
               autoCompleteType="username"
             />
           </View>
-
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
           <View style={styles.action}>
             <Entypo name="lock" size={24} color="#0b090a" />
@@ -58,7 +66,6 @@ const SignIn = ({ navigation }) => {
               autoCompleteType="password"
             />
           </View>
-
           <View style={styles.button}>
             <TouchableOpacity
               onPress={() => {
@@ -80,7 +87,6 @@ const SignIn = ({ navigation }) => {
               </Text>
             </TouchableOpacity>
           </View>
-
           <View style={styles.button}>
             <TouchableOpacity
               onPress={() => {
@@ -97,7 +103,7 @@ const SignIn = ({ navigation }) => {
               // ]}
             >
               <Text style={[styles.textSign, { color: "#0b090a" }]}>
-                Sign Up
+                Not Registered? Sign Up
               </Text>
             </TouchableOpacity>
           </View>
@@ -117,11 +123,12 @@ const styles = StyleSheet.create({
   },
   header: {
     // flex: 1,
-    marginTop: 50,
+    // marginTop: 40,
     // justifyContent: "flex-end",
     // paddingHorizontal: 20,
     // paddingBottom: 20,
   },
+
   linearGradient: {
     width: "100%",
     height: "100%",
@@ -138,7 +145,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 30,
     width: 350,
-    height: 400,
+    height: 450,
   },
   text_header: {
     color: "#0D2D44",

@@ -4,7 +4,8 @@ import Constants from "expo-constants";
 import Animated from "react-native-reanimated";
 import { ProgressBar, Colors } from "react-native-paper";
 import habitStore from "../stores/habitStore";
-import { LinearGradient } from "expo-linear-gradient";
+// import { LinearGradient } from "expo-linear-gradient";
+import { observer } from "mobx-react";
 
 // function useInterval(callback, delay) {
 //   // need to add Boolean
@@ -113,25 +114,25 @@ const MyComponent = () => {
 
   return (
     <View style={styles.container}>
-      <LinearGradient
+      {/* <LinearGradient
         colors={["#ffffff", "#cfd9df"]}
         start={[0.1, 0.1]}
         style={styles.linearGradient}
-      >
-        <View style={styles.footer}>
-          <ProgressBar
-            style={{ marginTop: 300 }}
-            // progress={habitStore.habits.completed / habitStore.habits.length}
-            progress={numberOfCompletedTasks / numberOfTasks}
-            color={Colors.red800}
-          />
-        </View>
-      </LinearGradient>
+      > */}
+      <View style={styles.footer}>
+        <ProgressBar
+          style={{ marginTop: 300 }}
+          // progress={habitStore.habits.completed / habitStore.habits.length}
+          progress={numberOfCompletedTasks / numberOfTasks}
+          color={Colors.red800}
+        />
+      </View>
+      {/* </LinearGradient> */}
     </View>
   );
 };
 
-export default MyComponent;
+export default observer(MyComponent);
 
 const styles = StyleSheet.create({
   container: {
