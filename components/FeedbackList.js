@@ -3,7 +3,14 @@ import FeedbackItem from "./FeedbackItem";
 import { List, Content } from "native-base";
 import { observer } from "mobx-react";
 import React from "react";
-import { Text, View, Button, Alert, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  Button,
+  Alert,
+  ScrollView,
+  StyleSheet,
+} from "react-native";
 import { Spinner } from "native-base";
 const FeedbackList = ({ name, navigation }) => {
   // if (habitStore.loadingFeedbacks) return <Spinner />;
@@ -22,16 +29,17 @@ const FeedbackList = ({ name, navigation }) => {
   return (
     <View>
       <ScrollView>
-        <Button
-          onPress={() =>
-            navigation.navigate("NewFeedbackForm", { habitId: habitFound.id })
-          }
-          title="Add Feedback"
-          color="#a1c4fd"
-        >
-          Add Feedback!
-        </Button>
-
+        <View style={styles.button}>
+          <Button
+            onPress={() =>
+              navigation.navigate("NewFeedbackForm", { habitId: habitFound.id })
+            }
+            title="Add Feedback"
+            color="#a1c4fd"
+          >
+            Add Feedback!
+          </Button>
+        </View>
         <List>{feedbackList}</List>
       </ScrollView>
     </View>
@@ -39,3 +47,13 @@ const FeedbackList = ({ name, navigation }) => {
 };
 
 export default observer(FeedbackList);
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+    // backgroundColor: "#fff",
+  },
+  button: {
+    alignItems: "center",
+    marginTop: 50,
+  },
+});

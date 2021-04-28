@@ -82,8 +82,15 @@ export const HabitDetailImage = styled.Image`
 
 export const HabitDetailTitle = styled.Text`
   font-weight: bold;
-  font-size: 25;
+  font-size: 30;
   text-align: center;
+  /* margin-top: 10; */
+`;
+export const HabitDetail = styled.Text`
+  font-weight: bold;
+  font-size: 15;
+  text-align: center;
+  margin-top: 20;
 `;
 
 export const HabitContent = styled.Text`

@@ -27,6 +27,9 @@ const HabitList = ({ navigation }) => {
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
+      <View style={styles.header}>
+        <Text>My Habits</Text>
+      </View>
       <SafeAreaView style={styles.container}>
         <View style={styles.titleBar}></View>
 
@@ -88,6 +91,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 100,
     // alignItems: "center",
+  },
+  header: {
+    // marginBottom: 30,
+    marginTop: 20,
+    fontSize: 20,
   },
   text: {
     width: 149,

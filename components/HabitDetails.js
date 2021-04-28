@@ -5,6 +5,7 @@ import FeedbackList from "./FeedbackList";
 import { observer } from "mobx-react";
 import {
   HabitDetailTitle,
+  HabitDetail,
   HabitDetailImage,
   HabitDetailWrapper,
 } from "../styles";
@@ -26,8 +27,8 @@ const HabitDetails = ({ route, navigation }) => {
         {/* <HabitDetailImage source={{ uri: habit.image }} /> */}
         {/* <DeleteButton habit={habit} navigation={navigation} /> */}
         <HabitDetailTitle>{habit.name}</HabitDetailTitle>
-        <HabitDetailTitle>{habit.category}</HabitDetailTitle>
-        <HabitDetailTitle>{habit.details}</HabitDetailTitle>
+        <HabitDetail>{habit.category}</HabitDetail>
+        <HabitDetail>{habit.details}</HabitDetail>
         {/* <HabitDetailTitle>{habit.daily}</HabitDetailTitle> */}
         {/* <HabitDetailTitle>{habit.completed}</HabitDetailTitle> */}
 
