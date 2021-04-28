@@ -14,8 +14,9 @@ const progress = () => {
   return (
     <View style={styles.container}>
       <View style={styles.footer}>
+        <Text style={styles.text}>Your Progress </Text>
         <ProgressBar
-          style={{ marginTop: 300 }}
+          // style={{ width: 200 }}
           progress={numberOfCompletedTasks / numberOfTasks}
           color={Colors.blue900}
         />
@@ -43,6 +44,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 5,
   },
+  text: {
+    textAlign: "center",
+    fontSize: 20,
+    marginBottom: 35,
+  },
   linearGradient: {
     width: "100%",
     height: "100%",
@@ -53,13 +59,14 @@ const styles = StyleSheet.create({
 
   footer: {
     // flex: 15,
-    backgroundColor: "transparent",
-    borderTopLeftRadius: 100,
-    borderTopRightRadius: 50,
-    paddingHorizontal: 20,
-    paddingVertical: 30,
+    // backgroundColor: "transparent",
+    // borderTopLeftRadius: 100,
+    // borderTopRightRadius: 50,
+    // paddingHorizontal: 20,
+    // paddingVertical: 30,
     width: 350,
-    height: 500,
+    marginTop: 100,
+    // height: 50,
   },
   text_header: {
     color: "#0D2D44",

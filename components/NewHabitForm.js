@@ -8,15 +8,11 @@ import {
   Text,
 } from "react-native";
 import habitStore from "../stores/habitStore";
-import Feather from "react-native-vector-icons/Feather";
-import { Entypo } from "@expo/vector-icons";
-import { version } from "react/cjs/react.development";
+
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import DropDownPicker from "react-native-dropdown-picker";
-import Icon from "react-native-vector-icons/Feather";
 
 const NewHabitForm = ({ navigation }) => {
   const [habit, setHabit] = useState({

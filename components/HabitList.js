@@ -15,6 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 //
+import Progress from "./Progress";
 const HabitList = ({ navigation }) => {
   // if (habitStore.loading) return <Spinner />;
   const habitList = habitStore.habits.map((habit) => (
@@ -28,13 +29,13 @@ const HabitList = ({ navigation }) => {
     >
       <SafeAreaView style={styles.container}>
         <View style={styles.titleBar}></View>
-        <View style={styles.text}>
-          {/* <View style={styles.expanded}>
-          <Text>Add Habit</Text>
-        </View> */}
-        </View>
+
         <List>{habitList}</List>
+
         <ScrollView>
+          <View style={styles.progress}>
+            <Progress />
+          </View>
           <View style={styles.icon}>
             <Ionicons
               name="add-circle-sharp"
@@ -76,11 +77,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 15,
   },
+  progress: {
+    alignItems: "center",
+    // width: 150,
+    // marginLeft: 10,
+  },
   icon: {
     // color: "rgba(31,178,204,1)",
     fontSize: 30,
     alignSelf: "center",
-    marginTop: 150,
+    marginTop: 100,
     // alignItems: "center",
   },
   text: {
