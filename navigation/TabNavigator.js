@@ -5,6 +5,7 @@ import Profile from "../ProfileScreen/Profile";
 import TabBar from "./TabBar";
 import Progrees from "../components/Progrees";
 import HabitList from "../components/HabitList";
+import PartnerHabitList from "../components/PartnerHabitList";
 // import Home from "../components/Home";
 
 const Tab = createBottomTabNavigator();
@@ -17,16 +18,16 @@ const TabNavigator = () => {
         initialParams={{ icon: "SignUp" }}
       /> */}
       <Tab.Screen
-        name="Habit"
+        name="iWill"
         component={HabitList}
         initialParams={{ icon: "search1" }}
       />
 
-      {/* <Tab.Screen
+      <Tab.Screen
         name="uWill"
-        component={HabitList}
+        component={PartnerHabitList}
         initialParams={{ icon: "search1" }}
-      /> */}
+      />
       {/* <Tab.Screen
         name="Progrees"
         component={Progrees}

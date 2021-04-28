@@ -11,12 +11,14 @@ class HabitStore {
   feedbacks = [];
   loading = true;
   loadingFeedbacks = true;
+  // partner's habits array? fetch?
 
   constructor() {
     makeAutoObservable(this);
   }
 
   fetchHabits = async () => {
+    //HabitList
     try {
       const res = await instance.get("/habit");
       this.habits = res.data;
