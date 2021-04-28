@@ -18,13 +18,13 @@ const TabNavigator = () => {
       <Tab.Screen
         name="My Habits"
         component={HabitList}
-        initialParams={{ icon: "list" }}
+        initialParams={{ icon: "bars" }}
       />
 
       {/* <Tab.Screen
         name="uWill"
         component={HabitList}
-        initialParams={{ icon: "search1" }}
+        initialParams={{ icon: "team" }}
       /> */}
       {/* <Tab.Screen
         name="Progrees"
