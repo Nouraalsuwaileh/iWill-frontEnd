@@ -14,7 +14,7 @@ import DeleteButton from "./DeleteButton";
 
 const HabitDetails = ({ route, navigation }) => {
   const { habit } = route.params;
-  if (habitStore.loading) return <Spinner />;
+  // if (habitStore.loading) return <Spinner />;
 
   return (
     <LinearGradient

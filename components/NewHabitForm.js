@@ -29,6 +29,8 @@ const NewHabitForm = ({ navigation }) => {
     // userId: 0,
   });
 
+  // const [selectedLanguage, setSelectedLanguage] = useState();
+
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
@@ -68,7 +70,6 @@ const NewHabitForm = ({ navigation }) => {
               autoCorrect={false}
             />
           </View>
-
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Details</Text>
           <View style={styles.action}>
             <MaterialCommunityIcons
