@@ -15,6 +15,10 @@ import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
+// compare token id to partner ids in array
+// if there's at least one match, show Partner Habit List
+// If there's a partner habit list, filter by habits I am a partner in
+
 const PartnerHabitList = ({ navigation }) => {
   if (habitStore.loading) return <Spinner />;
   const habitList = habitStore.habits.map((habit) => (

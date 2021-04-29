@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useReducer } from "react";
 import { SafeAreaView, StyleSheet, TextInput, Button } from "react-native";
 import habitStore from "../stores/habitStore";
+import authStore from "../stores/authStore";
 // import { CreateButtonStyled } from "../styles";
 import { LinearGradient } from "expo-linear-gradient";
+import { observer } from "mobx-react";
 
 const NewFeedbackForm = ({ route, navigation }) => {
   const [feedback, setFeedback] = useState({
@@ -18,7 +20,12 @@ const NewFeedbackForm = ({ route, navigation }) => {
         multiline
         numberOfLines={4}
         onChangeText={(value) =>
-          setFeedback({ ...feedback, comment: value, habitId: habitId })
+          setFeedback({
+            ...feedback,
+            comment: value,
+            habitId: habitId,
+            userId: authStore.user?.userId || null,
+          })
         }
         value={feedback.comment}
       />
@@ -103,4 +110,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NewFeedbackForm;
+export default observer(NewFeedbackForm);

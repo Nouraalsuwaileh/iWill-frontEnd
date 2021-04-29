@@ -11,6 +11,7 @@ class HabitStore {
   feedbacks = [];
   loading = true;
   loadingFeedbacks = true;
+  partnerHabits = [];
   // partner's habits array? fetch?
 
   constructor() {
@@ -24,8 +25,21 @@ class HabitStore {
       this.habits = res.data;
       this.loading = false;
       console.log("fetchHabits response", res.data);
+      console.log("habit partner 1", res.data[0].partners[0]);
     } catch (error) {
       console.error("HabitStore -> fetchHabits -> error", error);
+    }
+  };
+
+  fetchPartnerHabits = async () => {
+    //PartnerHabitList
+    try {
+      const res = await instance.get("/habit/partners");
+      this.partnerHabits = res.data;
+      this.loading = false;
+      console.log("fetchPartnerHabits response", res.data);
+    } catch (error) {
+      console.error("HabitStore -> fetchPartnerHabits -> error", error);
     }
   };
   createHabit = async (newHabit) => {
@@ -61,8 +75,9 @@ class HabitStore {
   };
   createFeedback = async (newFeedback) => {
     try {
-      const res = await instance.post("/feedback", newFeedback);
-      this.fetchFeedbacks();
+      // const res = await instance.post("/feedback", newFeedback);
+      await instance.post("/feedback", newFeedback);
+      this.fetchFeedbacks(); //why fetch here?
       console.log(
         "HabitStore -> createFeedback -> this.feedbacks",
         this.feedbacks
@@ -92,5 +107,7 @@ class HabitStore {
 
 const habitStore = new HabitStore();
 habitStore.fetchHabits();
+habitStore.fetchFeedbacks();
+habitStore.fetchPartnerHabits();
 
 export default habitStore;

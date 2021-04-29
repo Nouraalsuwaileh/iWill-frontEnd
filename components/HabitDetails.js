@@ -16,6 +16,12 @@ const HabitDetails = ({ route, navigation }) => {
   const { habit } = route.params;
   if (habitStore.loading) return <Spinner />;
 
+  if (!habit.partners || habit.partners.length < 1) habitPartners = "";
+  else
+    habitPartners = `Partners:\n ${habit.partners
+      .map((p) => p.username)
+      .join(", ")}`;
+
   return (
     <LinearGradient
       colors={["#ffffff", "#cfd9df"]}
@@ -28,6 +34,10 @@ const HabitDetails = ({ route, navigation }) => {
         <HabitDetailTitle>{habit.name}</HabitDetailTitle>
         <HabitDetailTitle>{habit.category}</HabitDetailTitle>
         <HabitDetailTitle>{habit.details}</HabitDetailTitle>
+        <HabitDetailTitle>{habitPartners}</HabitDetailTitle>
+        {/* <HabitDetailTitle>
+          {habit.partners?.map((partner) => `${partner.username} \n`) || ""}
+        </HabitDetailTitle> */}
         {/* <HabitDetailTitle>{habit.daily}</HabitDetailTitle> */}
         {/* <HabitDetailTitle>{habit.completed}</HabitDetailTitle> */}
 
