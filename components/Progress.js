@@ -18,7 +18,7 @@ const progress = () => {
         <ProgressBar
           // style={{ width: 200 }}
           progress={numberOfCompletedTasks / numberOfTasks}
-          color={Colors.blue900}
+          color={Colors.tealA700}
         />
       </View>
     </View>
@@ -46,8 +46,10 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontSize: 20,
+    fontSize: 23,
     marginBottom: 35,
+    fontWeight: "bold",
+    color: "#0D2D44",
   },
   linearGradient: {
     width: "100%",
@@ -65,7 +67,8 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 20,
     // paddingVertical: 30,
     width: 350,
-    marginTop: 100,
+    marginTop: 70,
+
     // height: 50,
   },
   text_header: {

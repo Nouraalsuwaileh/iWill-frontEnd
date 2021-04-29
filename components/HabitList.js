@@ -27,8 +27,8 @@ const HabitList = ({ navigation }) => {
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
-      <View style={styles.header}>
-        <Text>My Habits</Text>
+      <View style={styles.header1}>
+        <Text style={styles.text_header}>My Habits</Text>
       </View>
       <SafeAreaView style={styles.container}>
         <View style={styles.titleBar}></View>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   titleBar: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 100,
+    marginTop: 50,
   },
   habitlist: {
     height: 30,
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
   },
   progress: {
     alignItems: "center",
+
     // width: 150,
     // marginLeft: 10,
   },
@@ -89,13 +90,14 @@ const styles = StyleSheet.create({
     // color: "rgba(31,178,204,1)",
     fontSize: 30,
     alignSelf: "center",
-    marginTop: 100,
+    marginTop: 40,
     // alignItems: "center",
   },
-  header: {
+  header1: {
     // marginBottom: 30,
-    marginTop: 20,
-    fontSize: 20,
+    marginTop: 200,
+    fontSize: 50,
+    fontWeight: "bold",
   },
   text: {
     width: 149,

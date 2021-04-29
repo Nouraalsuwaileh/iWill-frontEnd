@@ -96,16 +96,17 @@ const NewHabitForm = ({ navigation }) => {
           />
         </View> */}
         </View>
-
-        <Button
-          title="Save New Habit"
-          style={styles.textSign}
-          color="#a1c4fd"
-          onPress={() => {
-            habitStore.createHabit(habit);
-            navigation.goBack();
-          }}
-        />
+        <View style={styles.textSign}>
+          <Button
+            title="Save New Habit"
+            // style={styles.textSign}
+            color="#a1c4fd"
+            onPress={() => {
+              habitStore.createHabit(habit);
+              navigation.goBack();
+            }}
+          />
+        </View>
       </LinearGradient>
     </SafeAreaView>
   );
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 30,
     width: 350,
-    height: 550,
+    height: 400,
   },
   text_footer: {
     color: "black",
@@ -169,8 +170,9 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   textSign: {
-    fontSize: 18,
-    fontWeight: "bold",
+    // fontSize: 18,
+    // fontWeight: "bold",
+    marginBottom: 70,
   },
 });
 
