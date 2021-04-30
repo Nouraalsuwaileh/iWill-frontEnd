@@ -106,8 +106,8 @@ class HabitStore {
 }
 
 const habitStore = new HabitStore();
-habitStore.fetchHabits();
-habitStore.fetchFeedbacks();
-habitStore.fetchPartnerHabits();
+// habitStore.fetchHabits();
+// habitStore.fetchFeedbacks();
+// habitStore.fetchPartnerHabits();
 
 export default habitStore;

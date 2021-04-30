@@ -33,7 +33,7 @@ const Profile = ({ navigation }) => {
         <View style={styles.titleBar} /*the edit icone*/>
           <FontAwesome
             name="sign-out"
-            size={24}
+            size={35}
             color="black"
             onPress={() => {
               navigation.replace("SignIn");
@@ -42,7 +42,7 @@ const Profile = ({ navigation }) => {
 
           <AntDesign
             name="edit"
-            size={24}
+            size={35}
             color="black"
             onPress={() => navigation.navigate("EditProfile")}
           />

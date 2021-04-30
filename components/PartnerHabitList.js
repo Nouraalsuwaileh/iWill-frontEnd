@@ -21,7 +21,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const PartnerHabitList = ({ navigation }) => {
   if (habitStore.loading) return <Spinner />;
-  const habitList = habitStore.habits.map((habit) => (
+  const partnerHabitList = habitStore.partnerHabits.map((habit) => (
     <HabitItem habit={habit} key={habit.id} navigation={navigation} />
   ));
   return (
@@ -38,7 +38,7 @@ const PartnerHabitList = ({ navigation }) => {
         </View> */}
         </View>
 
-        <List>{habitList}</List>
+        <List>{partnerHabitList}</List>
         {/* <ScrollView>
           <View style={styles.icon}>
             <Ionicons
