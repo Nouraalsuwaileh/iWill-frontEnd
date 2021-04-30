@@ -37,6 +37,8 @@ const HabitItem = ({ habit, navigation }) => {
         <Checkbox
           // status={checked ? "checked" : "unchecked"}
           status={habit.completed ? "checked" : "unchecked"}
+          color={"#009688"}
+          bordercolor={"black"}
           onPress={() => {
             habitStore.toggleCompleted(habit.id, !habit.completed);
             // setChecked(!checked);

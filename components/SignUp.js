@@ -15,14 +15,14 @@ import Feather from "react-native-vector-icons/Feather";
 import { Entypo } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
-import DateTimePicker from "@react-native-community/datetimepicker";
+// import DateTimePicker from "@react-native-community/datetimepicker";
 
 const SignUp = ({ navigation }) => {
   //date states & functions
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-  const getDateStr = (date) =>
-    `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`; // console.log("Selected Date:", getDateStr(date));
+  // const getDateStr = (date) =>
+  // `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`; // console.log("Selected Date:", getDateStr(date));
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -131,7 +131,7 @@ const SignUp = ({ navigation }) => {
               />
             </TouchableOpacity>
           </View>
-          <View>
+          {/* <View>
             {show && (
               <DateTimePicker
                 testID="dateTimePicker"
@@ -141,7 +141,7 @@ const SignUp = ({ navigation }) => {
                 onChange={onChange}
               />
             )}
-          </View>
+          </View> */}
 
           <View style={styles.button}>
             <TouchableOpacity

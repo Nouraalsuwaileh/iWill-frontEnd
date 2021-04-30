@@ -1,18 +1,12 @@
 import React, { useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  TextInput,
-  Button,
-  View,
-  Text,
-} from "react-native";
+import { SafeAreaView, StyleSheet, TextInput, View, Text } from "react-native";
 import habitStore from "../stores/habitStore";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { Button } from "react-native-paper";
 
 const NewHabitForm = ({ navigation }) => {
   const [habit, setHabit] = useState({
@@ -97,7 +91,7 @@ const NewHabitForm = ({ navigation }) => {
         </View> */}
         </View>
         <View style={styles.textSign}>
-          <Button
+          {/* <Button
             title="Save New Habit"
             // style={styles.textSign}
             color="#a1c4fd"
@@ -105,7 +99,17 @@ const NewHabitForm = ({ navigation }) => {
               habitStore.createHabit(habit);
               navigation.goBack();
             }}
-          />
+          /> */}
+          <Button
+            mode="contained"
+            color={"#0D2D44"}
+            onPress={() => {
+              habitStore.createHabit(habit);
+              navigation.goBack();
+            }}
+          >
+            Save New Habit
+          </Button>
         </View>
       </LinearGradient>
     </SafeAreaView>

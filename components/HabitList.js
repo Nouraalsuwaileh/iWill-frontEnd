@@ -2,18 +2,13 @@ import React from "react";
 import habitStore from "../stores/habitStore";
 import HabitItem from "./HabitItem";
 import { observer } from "mobx-react";
-import {
-  View,
-  Button,
-  ScrollView,
-  StyleSheet,
-  SafeAreaView,
-  Text,
-} from "react-native";
+import { View, ScrollView, StyleSheet, SafeAreaView, Text } from "react-native";
+
 import { List, Spinner } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { Avatar } from "react-native-paper";
 //
 import Progress from "./Progress";
 const HabitList = ({ navigation }) => {
@@ -43,9 +38,10 @@ const HabitList = ({ navigation }) => {
             <Ionicons
               name="add-circle-sharp"
               size={60}
-              color="black"
+              color="#0D2D44"
               onPress={() => navigation.navigate("NewHabitForm")}
             />
+            {/* <Avatar.Icon size={24} icon="folder" colore="0D2D44" /> */}
           </View>
         </ScrollView>
         {/* <View style={styles.icon}>

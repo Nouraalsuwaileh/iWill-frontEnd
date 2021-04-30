@@ -18,7 +18,7 @@ const progress = () => {
         <ProgressBar
           // style={{ width: 200 }}
           progress={numberOfCompletedTasks / numberOfTasks}
-          color={Colors.tealA700}
+          color={Colors.teal500}
         />
       </View>
     </View>
