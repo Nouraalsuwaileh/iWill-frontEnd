@@ -23,7 +23,7 @@ const HabitList = ({ navigation }) => {
   ));
   return (
     <LinearGradient
-      colors={["#ffffff", "#cfd9df"]}
+      colors={["#5B5E5A", "#5B5E5A"]}
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
@@ -43,7 +43,7 @@ const HabitList = ({ navigation }) => {
             <Ionicons
               name="add-circle-sharp"
               size={60}
-              color="black"
+              color="#E88873"
               onPress={() => navigation.navigate("NewHabitForm")}
             />
           </View>
@@ -138,13 +138,13 @@ const styles = StyleSheet.create({
     height: 550,
   },
   text_header: {
-    color: "#0D2D44",
+    color: "#E88873",
     fontWeight: "bold",
     fontSize: 30,
     textAlign: "center",
   },
   text_footer: {
-    color: "#0b090a",
+    color: "#E49A88",
     fontSize: 18,
   },
   action: {

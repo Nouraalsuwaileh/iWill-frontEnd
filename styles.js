@@ -43,7 +43,7 @@ export const ButtonStyled = styled.Text`
 
 export const HabitItemStyled = styled.Text`
   /* color: ${(props) => props.theme.mainColor}; */
-  color: #0b090a;
+  color: #ffffff;
   font-size: 20;
   margin-top: 10;
   margin-bottom: 10;

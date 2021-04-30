@@ -24,7 +24,7 @@ const Profile = ({ navigation }) => {
 
   return (
     <LinearGradient
-      colors={["#ffffff", "#cfd9df"]}
+      colors={["#5B5E5A", "#5B5E5A"]}
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
@@ -34,7 +34,7 @@ const Profile = ({ navigation }) => {
           <FontAwesome
             name="sign-out"
             size={35}
-            color="black"
+            color="#E88873"
             onPress={() => {
               navigation.replace("SignIn");
             }}
@@ -43,7 +43,7 @@ const Profile = ({ navigation }) => {
           <AntDesign
             name="edit"
             size={35}
-            color="black"
+            color="#E88873"
             onPress={() => navigation.navigate("EditProfile")}
           />
         </View>
@@ -67,7 +67,7 @@ const Profile = ({ navigation }) => {
             {authStore.user?.fullname || "Name"}
             {/* {fetchedProfile.fullname} */}
           </Text>
-          <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>
+          <Text style={[styles.text, { color: "#ffffff", fontSize: 14 }]}>
             {/* onChangeText={(value) => setUser({ ...user, dateOfBirth: value })} */}
             {authStore.user?.dateOfBirth || "MM/DD/YYYY"}
             {/* {user.dateOfBirth} */}
@@ -83,7 +83,10 @@ const Profile = ({ navigation }) => {
             <View style={styles.activityIndicator}></View>
             <View style={{ width: 250 }}>
               <Text
-                style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
+                style={[
+                  styles.text,
+                  { color: "#E0E0E0", fontWeight: "300", textAlign: "center" },
+                ]}
               >
                 <Text style={{ fontWeight: "400" }}>
                   {authStore.user?.username || "Username"}
@@ -96,7 +99,10 @@ const Profile = ({ navigation }) => {
             <View style={styles.activityIndicator}></View>
             <View style={{ width: 250 }}>
               <Text
-                style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
+                style={[
+                  styles.text,
+                  { color: "#E0E0E0", fontWeight: "300", textAlign: "center" },
+                ]}
               >
                 <Text style={{ fontWeight: "400" }}>
                   {" "}
@@ -122,7 +128,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: "sans-serif", //original "HelveticaNeue" caused error
-    color: "#52575D",
+    color: "#E0E0E0",
     fontSize: 18,
     // marginTop: 15,
   },
@@ -219,11 +225,12 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   activityIndicator: {
-    backgroundColor: "#CABFAB",
-    padding: 4,
+    // backgroundColor: "#CABFAB",
+    // padding: 1,
     height: 12,
     width: 12,
     borderRadius: 6,
+    alignItems: "flex-start",
     // marginBottom: 50,
     marginRight: 20,
   },

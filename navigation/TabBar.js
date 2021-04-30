@@ -10,7 +10,7 @@ const TabBar = ({ state, navigation }) => {
   const renderColor = (
     // on tab the icon the color change from black to red
     currentTab
-  ) => (currentTab === selected ? "red" : "black");
+  ) => (currentTab === selected ? "#ffffff" : "#333432");
 
   const handlePress = (activeTab, index) => {
     if (state.index !== index) {
@@ -39,7 +39,7 @@ const TabBar = ({ state, navigation }) => {
 const styles = StyleSheet.create({
   wrapper: {
     position: "absolute",
-    bottom: 20,
+    bottom: 0,
     width,
     alignItems: "center",
     justifyContent: "center",
@@ -47,9 +47,10 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "#fff",
-    width: 350,
-    borderRadius: 100,
+    backgroundColor: "#E88873",
+    height: 60,
+    width: 400,
+    // borderRadius: 100,
     elevation: 2,
   },
 });

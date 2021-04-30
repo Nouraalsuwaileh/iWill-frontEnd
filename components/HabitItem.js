@@ -45,6 +45,7 @@ const HabitItem = ({ habit, navigation }) => {
             console.log(habit.completed);
           }}
           style={styles.checkbox}
+          color={"#E0E0E0"}
         />
       </View>
       {/* <MaterialCommunityIcons name="account-details" size={24} color="black" /> */}
@@ -53,9 +54,9 @@ const HabitItem = ({ habit, navigation }) => {
         {habit.name}
 
         <AntDesign
-          name="delete"
-          size={24}
-          color="black"
+          name="minuscircleo"
+          size={18}
+          color="#ffffff"
           style={styles.icon2}
           onPress={() => habitStore.deleteHabit(habit.id, navigation)}
         />
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     alignSelf: "center",
     marginLeft: 50,
+    color: "#E49A88",
     // marginTop: 150,
     // alignItems: "center",
   },
