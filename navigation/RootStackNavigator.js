@@ -20,20 +20,20 @@ const RootStackProfile = () => (
   <RootStack.Navigator
     initialRouteName={authStore.user ? "HabitList" : "SignIn"}
   >
-    {!authStore.user ? (
-      <>
-        <RootStack.Screen
-          options={{ headerShown: false }}
-          name="SignIn"
-          component={SignIn}
-        />
-        <RootStack.Screen
-          options={{ headerShown: false }}
-          name="SignUp"
-          component={SignUp}
-        />
-      </>
-    ) : null}
+    {/* {!authStore.user ? ( */}
+    <>
+      <RootStack.Screen
+        options={{ headerShown: false }}
+        name="SignIn"
+        component={SignIn}
+      />
+      <RootStack.Screen
+        options={{ headerShown: false }}
+        name="SignUp"
+        component={SignUp}
+      />
+    </>
+    {/* ) : null} */}
 
     <RootStack.Screen
       options={{ headerShown: false }}

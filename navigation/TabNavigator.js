@@ -23,7 +23,7 @@ const TabNavigator = () => {
         initialParams={{ icon: "bars" }}
       />
       <Tab.Screen
-        name="uWill"
+        name="Partner Habits"
         component={PartnerHabitList}
         initialParams={{ icon: "team" }}
       />

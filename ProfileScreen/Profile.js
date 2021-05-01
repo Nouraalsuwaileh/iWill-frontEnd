@@ -36,6 +36,7 @@ const Profile = ({ navigation }) => {
             size={35}
             color="black"
             onPress={() => {
+              authStore.signout();
               navigation.replace("SignIn");
             }}
           />

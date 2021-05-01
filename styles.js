@@ -88,9 +88,9 @@ export const HabitDetailTitle = styled.Text`
 `;
 export const HabitDetail = styled.Text`
   font-weight: bold;
-  font-size: 15;
+  font-size: 15px;
   text-align: center;
-  margin-top: 20;
+  margin-top: 20px;
 `;
 
 export const HabitContent = styled.Text`

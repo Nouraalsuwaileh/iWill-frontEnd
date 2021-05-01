@@ -61,9 +61,15 @@ class AuthStore {
       if (Date.now() < decodedToken.exp) {
         this.setUser(token);
       } else {
-        // this.signout();
+        this.signout();
       }
     }
+  };
+
+  signout = () => {
+    delete instance.defaults.headers.common.Authorization;
+    this.user = null;
+    console.log("authStore -> user after signout", this.user);
   };
 
   // fetchProfile = async (userId) => {
