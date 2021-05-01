@@ -53,7 +53,8 @@ const Profile = ({ navigation }) => {
             <Image
               // source={require("../image/icon_f.png")}
               // source={{ uri: authStore.user?.photo }}
-              source={require("../image/woman.jpg")}
+              // source={require("../image/woman.jpg")}
+              source={require("../image/profile2.jpg")}
               // source={require("../image/iWill.png")}
               style={styles.image}
               resizeMode="center"
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   profileImage: {
-    width: 200,
+    width: 250,
     height: 200,
     borderRadius: 100,
     overflow: "hidden",

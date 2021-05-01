@@ -44,8 +44,8 @@ const NewHabitForm = ({ navigation }) => {
           <View style={styles.action}>
             <MaterialIcons
               name="drive-file-rename-outline"
-              size={24}
-              color="black"
+              size={30}
+              color="#ACACAC"
             />
             <TextInput
               style={styles.textInput}
@@ -57,7 +57,7 @@ const NewHabitForm = ({ navigation }) => {
           </View>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Category</Text>
           <View style={styles.action}>
-            <AntDesign name="switcher" size={24} color="black" />
+            <AntDesign name="switcher" size={24} color="#ACACAC" />
             <TextInput
               style={styles.textInput}
               // placeholder="Category"
@@ -70,8 +70,8 @@ const NewHabitForm = ({ navigation }) => {
           <View style={styles.action}>
             <MaterialCommunityIcons
               name="account-details-outline"
-              size={24}
-              color="black"
+              size={30}
+              color="#ACACAC"
             />
             <TextInput
               style={styles.textInput}
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   textSign: {
-    // fontSize: 18,
+    // fontSize: 40,
     // fontWeight: "bold",
     marginBottom: 70,
     color: "#ffffff",

@@ -231,6 +231,7 @@ const styles = StyleSheet.create({
     // marginTop: Platform.OS === "ios" ? 0 : -12,
     width: 200,
     paddingLeft: 10,
+    color: "#ffffff",
     // color: "#E88873",
     // color: "#d6d6d6",
   },

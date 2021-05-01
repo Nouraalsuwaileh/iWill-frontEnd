@@ -19,7 +19,7 @@ export const TopStyling = styled.View`
 
 export const Title = styled.Text`
   color: black;
-  font-size: 38;
+  font-size: 38px;
   text-align: center;
   font-family: sans-serif;
   font-weight: bold;
@@ -37,17 +37,17 @@ export const BottomStyling = styled.View`
 `;
 
 export const ButtonStyled = styled.Text`
-  font-size: 30;
+  font-size: 30px;
   color: black;
 `;
 
 export const HabitItemStyled = styled.Text`
   /* color: ${(props) => props.theme.mainColor}; */
   color: #ffffff;
-  font-size: 20;
-  margin-top: 10;
-  margin-bottom: 10;
-  margin-left: 10;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
   width: 100%;
   font-weight: bold;
   font-family: monospace;
@@ -69,7 +69,7 @@ export const HabitItemStyled = styled.Text`
 // `;
 
 export const HabitDetailWrapper = styled.View`
-  margin-top: 100;
+  margin-top: 100px;
   /* margin-bottom: 35; */
 `;
 
@@ -78,12 +78,12 @@ export const HabitDetailImage = styled.Image`
   height: 150;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20;
+  margin-top: 20px;
 `;
 
 export const HabitDetailTitle = styled.Text`
   font-weight: bold;
-  font-size: 30;
+  font-size: 30px;
   text-align: center;
   color: #e88873;
   font-family: monospace;
@@ -91,15 +91,15 @@ export const HabitDetailTitle = styled.Text`
 `;
 export const HabitDetail = styled.Text`
   font-weight: bold;
-  font-size: 15;
+  font-size: 15px;
   text-align: center;
-  margin-top: 20;
+  margin-top: 20px;
   font-family: monospace;
   color: #ffffff;
 `;
 
 export const HabitContent = styled.Text`
-  margin-top: 5;
+  margin-top: 5px;
 `;
 
 // export const Habitbutton = styled.button`

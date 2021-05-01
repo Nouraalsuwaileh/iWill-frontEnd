@@ -76,7 +76,7 @@ const SignIn = ({ navigation }) => {
               style={[
                 styles.signIn,
                 {
-                  borderColor: "009387",
+                  borderColor: "#ffffff",
                   borderWidth: 1,
                   marginTop: 1,
                 },
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     // marginTop: Platform.OS === "ios" ? 0 : -12,
     width: 200,
     paddingLeft: 10,
-    // color: "#d6d6d6",
+    color: "#ffffff",
   },
   errorMsg: {
     color: "#d6d6d6",

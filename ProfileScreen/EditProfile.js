@@ -48,7 +48,7 @@ const EditProfile = ({ navigation }) => {
 
   return (
     <LinearGradient
-      colors={["#ffffff", "#cfd9df"]}
+      colors={["#5B5E5A", "#5B5E5A"]}
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
@@ -60,7 +60,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.footer}>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
           <View style={styles.action}>
-            <Feather name="user" size={24} color="black" />
+            <Feather name="user" size={24} color="#ACACAC" />
             <TextInput
               value={authStore.user?.username || "username"}
               onChangeText={(value) => setUser({ ...user, username: value })}
@@ -73,7 +73,7 @@ const EditProfile = ({ navigation }) => {
 
           {/* <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
         <View style={styles.action}>
-          <Entypo name="lock" size={24} color="black" />
+          <Entypo name="lock" size={24} color="#ACACAC" />
           <TextInput
             defaultValue={authStore.user.password}
             onChangeText={(value) => setUser({ ...user, password: value })}
@@ -87,7 +87,7 @@ const EditProfile = ({ navigation }) => {
 
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Full Name</Text>
           <View style={styles.action}>
-            <Feather name="user" size={24} color="black" />
+            <Feather name="user" size={24} color="#ACACAC" />
             <TextInput
               defaultValue={authStore.user?.fullname || "full name"}
               onChangeText={(value) => setUser({ ...user, fullname: value })}
@@ -99,7 +99,7 @@ const EditProfile = ({ navigation }) => {
 
           <Text style={[styles.text_footer, { marginTop: 20 }]}>E-Mail</Text>
           <View style={styles.action}>
-            <Entypo name="email" size={20} color="black" />
+            <Entypo name="email" size={20} color="#ACACAC" />
             <TextInput
               defaultValue={authStore.user?.email || "email"}
               onChangeText={(value) => setUser({ ...user, email: value })}
@@ -118,7 +118,7 @@ const EditProfile = ({ navigation }) => {
               onPress={showDatepicker}
               name="calendar"
               size={24}
-              color="black"
+              color="#ACACAC"
             />
             {/*** currently updatable as text only. Datepicker disabled. ***/}
             <TouchableOpacity onPress={showDatepicker}>
@@ -155,13 +155,13 @@ const EditProfile = ({ navigation }) => {
               style={[
                 styles.signIn,
                 {
-                  borderColor: "009387",
+                  borderColor: "#ffffff",
                   borderWidth: 1,
                   marginTop: 1,
                 },
               ]}
             >
-              <Text style={[styles.textSign, { color: "#0D2D44" }]}>Save</Text>
+              <Text style={[styles.textSign, { color: "#E88873" }]}>Save</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -192,14 +192,15 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 30,
     paddingHorizontal: 20,
     paddingVertical: 30,
+    color: "#ffffff",
   },
   text_header: {
-    color: "#fff",
+    color: "#E88873",
     fontWeight: "bold",
     fontSize: 30,
   },
   text_footer: {
-    color: "#8d063e",
+    color: "#ffffff",
     fontSize: 18,
   },
   action: {
@@ -220,13 +221,16 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: Platform.OS === "ios" ? 0 : -12,
     paddingLeft: 10,
-    color: "#05375a",
+    color: "#ffffff",
+    fontSize: 15,
+    fontWeight: "bold",
   },
   textInput_Uneditable: {
     flex: 1,
     marginTop: Platform.OS === "ios" ? 0 : -12,
     paddingLeft: 10,
-    color: "grey",
+    color: "#C6C6C6",
+    fontWeight: "bold",
   },
   errorMsg: {
     color: "#FF0000",
@@ -266,13 +270,13 @@ const styles = StyleSheet.create({
     height: 500,
   },
   text_header: {
-    color: "#0D2D44",
+    color: "#E88873",
     fontWeight: "bold",
     fontSize: 30,
     textAlign: "center",
   },
   text_footer: {
-    color: "#0b090a",
+    color: "#ffffff",
     fontSize: 18,
   },
 });

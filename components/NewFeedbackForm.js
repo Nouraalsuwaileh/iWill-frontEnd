@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { useReducer } from "react";
-import { SafeAreaView, StyleSheet, TextInput, Button } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+  Button,
+  View,
+} from "react-native";
 import habitStore from "../stores/habitStore";
 // import { CreateButtonStyled } from "../styles";
 import { LinearGradient } from "expo-linear-gradient";
@@ -13,20 +19,24 @@ const NewFeedbackForm = ({ route, navigation }) => {
 
   const { habitId } = route.params;
   return (
-    <SafeAreaView style={styles.container}>
-      <TextInput
-        multiline
-        numberOfLines={4}
-        onChangeText={(value) =>
-          setFeedback({ ...feedback, comment: value, habitId: habitId })
-        }
-        value={feedback.comment}
-      />
-      <LinearGradient
-        colors={["#5B5E5A", "#5B5E5A"]}
-        start={[0.1, 0.1]}
-        style={styles.linearGradient}
-      >
+    <LinearGradient
+      colors={["#5B5E5A", "#5B5E5A"]}
+      start={[0.1, 0.1]}
+      style={styles.linearGradient}
+    >
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <TextInput
+            multiline
+            numberOfLines={4}
+            style={styles.textInput}
+            onChangeText={(value) =>
+              setFeedback({ ...feedback, comment: value, habitId: habitId })
+            }
+            value={feedback.comment}
+          />
+        </View>
+
         <Button
           title="Save New Comment"
           color="#E88873"
@@ -35,8 +45,8 @@ const NewFeedbackForm = ({ route, navigation }) => {
             navigation.goBack();
           }}
         />
-      </LinearGradient>
-    </SafeAreaView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 };
 
@@ -45,12 +55,15 @@ const styles = StyleSheet.create({
     // flex: 1,
     // backgroundColor: "#fff",
     // backgroundColor: "",
+    // marginBottom: 200,
   },
   header: {
-    // flex: 2,
-    justifyContent: "flex-end",
     paddingHorizontal: 20,
-    paddingBottom: 20,
+
+    width: 300,
+    marginTop: 100,
+    backgroundColor: "#939292",
+    color: "#ffffff",
   },
   input: {
     height: 40,
@@ -61,7 +74,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     opacity: 0.95,
-    justifyContent: "center",
+
+    // justifyContent: "center",
     alignItems: "center",
   },
   footer: {
@@ -84,10 +98,10 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   textInput: {
-    flex: 1,
-    marginTop: Platform.OS === "ios" ? 0 : -12,
-    paddingLeft: 10,
-    color: "#05375a",
+    // flex: 1,
+    // marginTop: Platform.OS === "ios" ? 0 : -12,
+    // paddingLeft: 10,
+    color: "#ffffff",
   },
   action: {
     flexDirection: "row",
