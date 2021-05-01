@@ -35,7 +35,7 @@ const FeedbackList = ({ name, navigation }) => {
               navigation.navigate("NewFeedbackForm", { habitId: habitFound.id })
             }
             title="Add Comment"
-            color="#a1c4fd"
+            color="#E88873"
           >
             Add Feedback!
           </Button>

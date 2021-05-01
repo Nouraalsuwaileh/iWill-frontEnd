@@ -85,6 +85,8 @@ export const HabitDetailTitle = styled.Text`
   font-weight: bold;
   font-size: 30;
   text-align: center;
+  color: #e88873;
+  font-family: monospace;
   /* margin-top: 10; */
 `;
 export const HabitDetail = styled.Text`
@@ -92,6 +94,8 @@ export const HabitDetail = styled.Text`
   font-size: 15;
   text-align: center;
   margin-top: 20;
+  font-family: monospace;
+  color: #ffffff;
 `;
 
 export const HabitContent = styled.Text`

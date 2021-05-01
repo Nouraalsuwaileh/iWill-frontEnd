@@ -90,5 +90,6 @@ class HabitStore {
 
 const habitStore = new HabitStore();
 habitStore.fetchHabits();
+habitStore.fetchFeedbacks();
 
 export default habitStore;

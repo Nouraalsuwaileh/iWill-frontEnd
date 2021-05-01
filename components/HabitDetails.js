@@ -19,7 +19,7 @@ const HabitDetails = ({ route, navigation }) => {
 
   return (
     <LinearGradient
-      colors={["#ffffff", "#cfd9df"]}
+      colors={["#5B5E5A", "#5B5E5A"]}
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >

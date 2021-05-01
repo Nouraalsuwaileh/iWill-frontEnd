@@ -53,17 +53,48 @@ const RootStackProfile = () => (
       component={HabitList}
     />
     <RootStack.Screen
-      options={{ headerShown: true }}
+      options={{
+        headerShown: true,
+        title: "HABIT DETAILS",
+        headerStyle: {
+          backgroundColor: "#E88873",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
       name="HabitDetails"
       component={HabitDetails}
     />
     <RootStack.Screen
-      options={{ headerShown: true }}
+      options={{
+        headerShown: true,
+        title: "CREATE HABIT",
+        headerStyle: {
+          backgroundColor: "#E88873",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
       name="NewHabitForm"
       component={NewHabitForm}
+      // color={"#E88873"}
     />
     <RootStack.Screen
-      options={{ headerShown: true }}
+      options={{
+        headerShown: true,
+        title: "CREATE HABIT",
+        headerStyle: {
+          backgroundColor: "#E88873",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
       name="NewFeedbackForm"
       component={NewFeedbackForm}
     />

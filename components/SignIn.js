@@ -45,7 +45,7 @@ const SignIn = ({ navigation }) => {
         <View style={styles.footer}>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
           <View style={styles.action}>
-            <Feather name="user" size={24} color="#E88873" />
+            <Feather name="user" size={24} color="#ACACAC" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, username: value })}
               // placeholder="Your Username"
@@ -56,7 +56,7 @@ const SignIn = ({ navigation }) => {
           </View>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
           <View style={styles.action}>
-            <Entypo name="lock" size={24} color="#E88873" />
+            <Entypo name="lock" size={24} color="#ACACAC" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, password: value })}
               // placeholder="Your Password"

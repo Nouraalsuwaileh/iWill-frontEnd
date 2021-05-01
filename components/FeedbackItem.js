@@ -17,9 +17,10 @@ const FeedbackItem = ({ feedback, navigation }) => {
           {/* {feedback.user.username} */}
           {feedback.comment}
           <AntDesign
-            name="delete"
-            size={24}
-            color="black"
+            name="minuscircleo"
+            size={18}
+            color="#ffffff"
+            // style={styles.icon2}
             onPress={() => habitStore.deleteFeedback(feedback.id, navigation)}
           />
         </HabitItemStyled>

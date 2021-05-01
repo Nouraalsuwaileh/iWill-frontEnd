@@ -49,7 +49,7 @@ const SignUp = ({ navigation }) => {
 
   return (
     <LinearGradient
-      colors={["#a1c4fd", "#cfd9df", "#c2e9fb", "#93a5cf"]}
+      colors={["#5B5E5A", "#5B5E5A", "#E88873"]}
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
@@ -61,7 +61,7 @@ const SignUp = ({ navigation }) => {
         <View style={styles.footer}>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Full Name</Text>
           <View style={styles.action}>
-            <Feather name="user" size={24} color="black" />
+            <Feather name="user" size={24} color="#ACACAC" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, fullname: value })}
               placeholder="Your Name"
@@ -72,7 +72,7 @@ const SignUp = ({ navigation }) => {
 
           <Text style={[styles.text_footer, { marginTop: 20 }]}>E-Mail</Text>
           <View style={styles.action}>
-            <Entypo name="email" size={20} color="black" />
+            <Entypo name="email" size={20} color="#ACACAC" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, email: value })}
               placeholder="Your E-Mail Address"
@@ -85,7 +85,7 @@ const SignUp = ({ navigation }) => {
 
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
           <View style={styles.action}>
-            <Feather name="user" size={24} color="black" />
+            <Feather name="user" size={24} color="#ACACAC" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, username: value })}
               placeholder="Your Username"
@@ -97,7 +97,7 @@ const SignUp = ({ navigation }) => {
 
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
           <View style={styles.action}>
-            <Entypo name="lock" size={24} color="black" />
+            <Entypo name="lock" size={24} color="#ACACAC" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, password: value })}
               placeholder="Your Password"
@@ -116,7 +116,7 @@ const SignUp = ({ navigation }) => {
               onPress={showDatepicker}
               name="calendar"
               size={24}
-              color="black"
+              color="#ACACAC"
             />
             <TouchableOpacity onPress={showDatepicker}>
               <TextInput
@@ -158,7 +158,7 @@ const SignUp = ({ navigation }) => {
                 },
               ]}
             >
-              <Text style={[styles.textSign, { color: "#0b090a" }]}>
+              <Text style={[styles.textSign, { color: "#ffffff" }]}>
                 Create Account
               </Text>
             </TouchableOpacity>
@@ -203,13 +203,13 @@ const styles = StyleSheet.create({
     height: 550,
   },
   text_header: {
-    color: "#0D2D44",
+    color: "#E88873",
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 35,
     textAlign: "center",
   },
   text_footer: {
-    color: "#0b090a",
+    color: "#ffffff",
     fontSize: 18,
   },
   action: {
@@ -231,6 +231,7 @@ const styles = StyleSheet.create({
     // marginTop: Platform.OS === "ios" ? 0 : -12,
     width: 200,
     paddingLeft: 10,
+    // color: "#E88873",
     // color: "#d6d6d6",
   },
   errorMsg: {

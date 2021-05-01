@@ -30,7 +30,7 @@ const NewHabitForm = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
-        colors={["#ffffff", "#cfd9df"]}
+        colors={["#5B5E5A", "#5B5E5A"]}
         start={[0.1, 0.1]}
         style={styles.linearGradient}
       >
@@ -49,7 +49,7 @@ const NewHabitForm = ({ navigation }) => {
             />
             <TextInput
               style={styles.textInput}
-              placeholder="Habit Name"
+              // placeholder="Habit Name"
               onChangeText={(value) => setHabit({ ...habit, name: value })}
               value={habit.name}
               autoCorrect={false}
@@ -60,7 +60,7 @@ const NewHabitForm = ({ navigation }) => {
             <AntDesign name="switcher" size={24} color="black" />
             <TextInput
               style={styles.textInput}
-              placeholder="Category"
+              // placeholder="Category"
               onChangeText={(value) => setHabit({ ...habit, category: value })}
               value={habit.category}
               autoCorrect={false}
@@ -75,7 +75,7 @@ const NewHabitForm = ({ navigation }) => {
             />
             <TextInput
               style={styles.textInput}
-              placeholder="Details"
+              // placeholder="Details"
               multiline
               numberOfLines={4}
               onChangeText={(value) => setHabit({ ...habit, details: value })}
@@ -100,7 +100,7 @@ const NewHabitForm = ({ navigation }) => {
           <Button
             title="Save New Habit"
             // style={styles.textSign}
-            color="#a1c4fd"
+            color="#E88873"
             onPress={() => {
               habitStore.createHabit(habit);
               navigation.goBack();
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     height: 400,
   },
   text_footer: {
-    color: "black",
+    color: "#ffffff",
     fontSize: 18,
   },
   text_header: {
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: Platform.OS === "ios" ? 0 : -12,
     paddingLeft: 10,
-    color: "#05375a",
+    color: "#ffffff",
   },
   action: {
     flexDirection: "row",
@@ -173,6 +173,7 @@ const styles = StyleSheet.create({
     // fontSize: 18,
     // fontWeight: "bold",
     marginBottom: 70,
+    color: "#ffffff",
   },
 });
 

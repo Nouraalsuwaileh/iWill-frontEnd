@@ -23,13 +23,13 @@ const NewFeedbackForm = ({ route, navigation }) => {
         value={feedback.comment}
       />
       <LinearGradient
-        colors={["#ffffff", "#cfd9df"]}
+        colors={["#5B5E5A", "#5B5E5A"]}
         start={[0.1, 0.1]}
         style={styles.linearGradient}
       >
         <Button
           title="Save New Comment"
-          color="#a1c4fd"
+          color="#E88873"
           onPress={() => {
             habitStore.createFeedback(feedback);
             navigation.goBack();
@@ -43,8 +43,7 @@ const NewFeedbackForm = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    backgroundColor: "#fff",
-
+    // backgroundColor: "#fff",
     // backgroundColor: "",
   },
   header: {
