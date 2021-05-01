@@ -50,6 +50,7 @@ export const HabitItemStyled = styled.Text`
   margin-left: 10;
   width: 100%;
   font-weight: bold;
+  font-family: monospace;
 `;
 
 // export const CreateButtonStyled = styled.Button`

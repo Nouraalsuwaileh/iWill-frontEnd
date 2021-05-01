@@ -80,7 +80,6 @@ const Profile = ({ navigation }) => {
 
         <View style={{ alignItems: "center" }}>
           <View style={styles.recentItem}>
-            <View style={styles.activityIndicator}></View>
             <View style={{ width: 250 }}>
               <Text
                 style={[
@@ -88,7 +87,13 @@ const Profile = ({ navigation }) => {
                   { color: "#E0E0E0", fontWeight: "300", textAlign: "center" },
                 ]}
               >
-                <Text style={{ fontWeight: "400" }}>
+                <Text
+                  style={{
+                    fontWeight: "400",
+                    textAlign: "center",
+                    marginBottom: "10",
+                  }}
+                >
                   {authStore.user?.username || "Username"}
                 </Text>
               </Text>
@@ -96,7 +101,6 @@ const Profile = ({ navigation }) => {
           </View>
 
           <View style={styles.recentItem}>
-            <View style={styles.activityIndicator}></View>
             <View style={{ width: 250 }}>
               <Text
                 style={[

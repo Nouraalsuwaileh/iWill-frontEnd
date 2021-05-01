@@ -26,8 +26,8 @@ const SignIn = ({ navigation }) => {
 
   return (
     <LinearGradient
-      colors={["#a1c4fd", "#cfd9df", "#c2e9fb", "#93a5cf"]}
-      start={[0.1, 0.1]}
+      colors={["#5B5E5A", "#5B5E5A", "#E88873"]}
+      // start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
       {/* <View style={styles.image}> */}
@@ -45,10 +45,10 @@ const SignIn = ({ navigation }) => {
         <View style={styles.footer}>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Username</Text>
           <View style={styles.action}>
-            <Feather name="user" size={24} color="#0b090a" />
+            <Feather name="user" size={24} color="#E88873" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, username: value })}
-              placeholder="Your Username"
+              // placeholder="Your Username"
               style={styles.textInput}
               autoCapitalize="none"
               autoCompleteType="username"
@@ -56,10 +56,10 @@ const SignIn = ({ navigation }) => {
           </View>
           <Text style={[styles.text_footer, { marginTop: 20 }]}>Password</Text>
           <View style={styles.action}>
-            <Entypo name="lock" size={24} color="#0b090a" />
+            <Entypo name="lock" size={24} color="#E88873" />
             <TextInput
               onChangeText={(value) => setUser({ ...user, password: value })}
-              placeholder="Your Password"
+              // placeholder="Your Password"
               secureTextEntry={true}
               style={styles.textInput}
               autoCapitalize="none"
@@ -82,7 +82,7 @@ const SignIn = ({ navigation }) => {
                 },
               ]}
             >
-              <Text style={[styles.textSign, { color: "#0b090a" }]}>
+              <Text style={[styles.textSign, { color: "#ffffff" }]}>
                 Sign In
               </Text>
             </TouchableOpacity>
@@ -102,7 +102,7 @@ const SignIn = ({ navigation }) => {
               //   },
               // ]}
             >
-              <Text style={[styles.textSign, { color: "#0b090a" }]}>
+              <Text style={[styles.textSign, { color: "#ffffff" }]}>
                 Not Registered? Sign Up
               </Text>
             </TouchableOpacity>
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   text_footer: {
-    color: "#0b090a",
+    color: "#ffffff",
     fontSize: 18,
   },
   action: {

@@ -46,10 +46,11 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontSize: 23,
+    fontSize: 28,
     marginBottom: 35,
     fontWeight: "bold",
     color: "#E88873",
+    fontFamily: "sans-serif-condensed",
   },
   linearGradient: {
     width: "100%",

@@ -28,7 +28,7 @@ const HabitList = ({ navigation }) => {
       style={styles.linearGradient}
     >
       <View style={styles.header1}>
-        <Text style={styles.text_header}>My Habits</Text>
+        <Text style={styles.text_header}>MY HABITS</Text>
       </View>
       <SafeAreaView style={styles.container}>
         <View style={styles.titleBar}></View>
@@ -140,8 +140,9 @@ const styles = StyleSheet.create({
   text_header: {
     color: "#E88873",
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 35,
     textAlign: "center",
+    fontFamily: "sans-serif-condensed",
   },
   text_footer: {
     color: "#E49A88",
