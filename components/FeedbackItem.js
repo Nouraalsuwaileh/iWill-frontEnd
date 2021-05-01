@@ -14,6 +14,7 @@ const FeedbackItem = ({ feedback, navigation }) => {
       <ListItem>
         {/* <Text> {feedback.user.username}</Text> */}
         <HabitItemStyled>
+          {/* {feedback.user.username} */}
           {feedback.comment}
           <AntDesign
             name="delete"

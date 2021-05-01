@@ -51,22 +51,13 @@ const Profile = ({ navigation }) => {
         <View style={{ alignSelf: "center" }}>
           <View style={styles.profileImage} /*profile image*/>
             <Image
-              source={require("../image/icon_f.png")}
+              // source={require("../image/icon_f.png")}
+              // source={{ uri: authStore.user?.photo }}
+              source={require("../image/woman.jpg")}
+              // source={require("../image/iWill.png")}
               style={styles.image}
               resizeMode="center"
             ></Image>
-          </View>
-          <View style={styles.dm} /*chart icon */>
-            <AntDesign name="barschart" size={18} color="#DFD8C8" />
-          </View>
-
-          <View style={styles.add}>
-            <Ionicons // the + icone
-              name="ios-add"
-              size={48}
-              color="#DFD8C8"
-              style={{ marginTop: 6, marginLeft: 2 }}
-            />
           </View>
         </View>
 
@@ -83,9 +74,9 @@ const Profile = ({ navigation }) => {
           </Text>
         </View>
 
-        <Text style={[styles.subText, styles.recent, { fontSize: 15 }]}>
+        {/* <Text style={[styles.subText, styles.recent, { fontSize: 15 }]}>
           User Information
-        </Text>
+        </Text> */}
 
         <View style={{ alignItems: "center" }}>
           <View style={styles.recentItem}>
@@ -94,10 +85,9 @@ const Profile = ({ navigation }) => {
               <Text
                 style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
               >
-                Username:{" "}
-                <View style={styles.info}>
-                  <Text>{authStore.user?.username || "Username"}</Text>
-                </View>
+                <Text style={{ fontWeight: "400" }}>
+                  {authStore.user?.username || "Username"}
+                </Text>
               </Text>
             </View>
           </View>
@@ -108,7 +98,6 @@ const Profile = ({ navigation }) => {
               <Text
                 style={[styles.text, { color: "#41444B", fontWeight: "300" }]}
               >
-                Email:{" "}
                 <Text style={{ fontWeight: "400" }}>
                   {" "}
                   {authStore.user?.email || "E-Mail"}
@@ -134,6 +123,8 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "sans-serif", //original "HelveticaNeue" caused error
     color: "#52575D",
+    fontSize: 18,
+    // marginTop: 15,
   },
   image: {
     flex: 1,
@@ -143,8 +134,8 @@ const styles = StyleSheet.create({
   titleBar: {
     flexDirection: "row",
     justifyContent: "space-between",
-    // marginBottom: 100,
-    // marginTop: 24,
+
+    marginBottom: 20,
     // marginHorizontal: 16,
     // marginRight: 50,
   },
@@ -214,6 +205,7 @@ const styles = StyleSheet.create({
     // overflow: "hidden",
     // marginHorizontal: 10,
     // marginBottom: 30,
+    // fontSize: 50,
   },
   recent: {
     marginLeft: 78,

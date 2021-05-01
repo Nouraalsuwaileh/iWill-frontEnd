@@ -2,21 +2,17 @@ import React from "react";
 import habitStore from "../stores/habitStore";
 import HabitItem from "./HabitItem";
 import { observer } from "mobx-react";
-import {
-  View,
-  Button,
-  ScrollView,
-  StyleSheet,
-  SafeAreaView,
-  Text,
-} from "react-native";
+import { View, ScrollView, StyleSheet, SafeAreaView, Text } from "react-native";
+
 import { List, Spinner } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-
+import { Avatar } from "react-native-paper";
+//
+import Progress from "./Progress";
 const HabitList = ({ navigation }) => {
-  if (habitStore.loading) return <Spinner />;
+  // if (habitStore.loading) return <Spinner />;
   const habitList = habitStore.habits.map((habit) => (
     <HabitItem habit={habit} key={habit.id} navigation={navigation} />
   ));
@@ -26,26 +22,28 @@ const HabitList = ({ navigation }) => {
       start={[0.1, 0.1]}
       style={styles.linearGradient}
     >
+      <View style={styles.header1}>
+        <Text style={styles.text_header}>My Habits</Text>
+      </View>
       <SafeAreaView style={styles.container}>
         <View style={styles.titleBar}></View>
-        <View style={styles.text}>
-          {/* <View style={styles.expanded}>
-          <Text>Add Habit</Text>
-        </View> */}
-        </View>
 
         <List>{habitList}</List>
+
         <ScrollView>
+          <View style={styles.progress}>
+            <Progress />
+          </View>
           <View style={styles.icon}>
             <Ionicons
               name="add-circle-sharp"
               size={60}
-              color="black"
+              color="#0D2D44"
               onPress={() => navigation.navigate("NewHabitForm")}
             />
+            {/* <Avatar.Icon size={24} icon="folder" colore="0D2D44" /> */}
           </View>
         </ScrollView>
-
         {/* <View style={styles.icon}>
           <AntDesign name="arrowright" size={24} color="black" />
         </View> */}
@@ -71,19 +69,31 @@ const styles = StyleSheet.create({
   titleBar: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 100,
+    marginTop: 50,
   },
   habitlist: {
     height: 30,
     fontSize: 16,
     marginTop: 15,
   },
+  progress: {
+    alignItems: "center",
+
+    // width: 150,
+    // marginLeft: 10,
+  },
   icon: {
     // color: "rgba(31,178,204,1)",
     fontSize: 30,
     alignSelf: "center",
-    marginTop: 150,
+    marginTop: 40,
     // alignItems: "center",
+  },
+  header1: {
+    // marginBottom: 30,
+    marginTop: 200,
+    fontSize: 50,
+    fontWeight: "bold",
   },
   text: {
     width: 149,

@@ -21,8 +21,8 @@ const SignUp = ({ navigation }) => {
   //date states & functions
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-  const getDateStr = (date) =>
-    `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`; // console.log("Selected Date:", getDateStr(date));
+  // const getDateStr = (date) =>
+  // `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`; // console.log("Selected Date:", getDateStr(date));
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -122,24 +122,26 @@ const SignUp = ({ navigation }) => {
               <TextInput
                 value={getDateStr(date)}
                 editable={false}
-                // onChangeText={(value) => setUser({ ...user, dateOfBirth: value })}
-                placeholder="MM/DD/YYYY"
+                // onChangeText={(value) =>
+                // setUser({ ...user, dateOfBirth: value })
+                // }
+                placeholder="DD/MM/YYYY"
                 style={styles.textInput}
                 autoCapitalize="none"
               />
             </TouchableOpacity>
           </View>
           {/* <View>
-          {show && (
-            <DateTimePicker
-              testID="dateTimePicker"
-              value={date}
-              mode="date"
-              display="default"
-              onChange={onChange}
-            />
-          )}
-        </View> */}
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode="date"
+                display="default"
+                onChange={onChange}
+              />
+            )}
+          </View> */}
 
           <View style={styles.button}>
             <TouchableOpacity
@@ -157,7 +159,7 @@ const SignUp = ({ navigation }) => {
               ]}
             >
               <Text style={[styles.textSign, { color: "#0b090a" }]}>
-                Sign Up
+                Create Account
               </Text>
             </TouchableOpacity>
           </View>

@@ -1,20 +1,12 @@
 import React, { useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  TextInput,
-  Button,
-  View,
-  Text,
-} from "react-native";
+import { SafeAreaView, StyleSheet, TextInput, View, Text } from "react-native";
 import habitStore from "../stores/habitStore";
-import Feather from "react-native-vector-icons/Feather";
-import { Entypo } from "@expo/vector-icons";
-import { version } from "react/cjs/react.development";
+
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { Button } from "react-native-paper";
 
 const NewHabitForm = ({ navigation }) => {
   const [habit, setHabit] = useState({
@@ -26,6 +18,8 @@ const NewHabitForm = ({ navigation }) => {
     // completed: "",
     // userId: 0,
   });
+
+  // const [selectedLanguage, setSelectedLanguage] = useState();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -96,16 +90,27 @@ const NewHabitForm = ({ navigation }) => {
           />
         </View> */}
         </View>
-
-        <Button
-          title="Save New Habit"
-          style={styles.textSign}
-          color="#a1c4fd"
-          onPress={() => {
-            habitStore.createHabit(habit);
-            navigation.goBack();
-          }}
-        />
+        <View style={styles.textSign}>
+          {/* <Button
+            title="Save New Habit"
+            // style={styles.textSign}
+            color="#a1c4fd"
+            onPress={() => {
+              habitStore.createHabit(habit);
+              navigation.goBack();
+            }}
+          /> */}
+          <Button
+            mode="contained"
+            color={"#0D2D44"}
+            onPress={() => {
+              habitStore.createHabit(habit);
+              navigation.goBack();
+            }}
+          >
+            Save New Habit
+          </Button>
+        </View>
       </LinearGradient>
     </SafeAreaView>
   );
@@ -144,7 +149,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 30,
     width: 350,
-    height: 550,
+    height: 400,
   },
   text_footer: {
     color: "black",
@@ -169,8 +174,9 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   textSign: {
-    fontSize: 18,
-    fontWeight: "bold",
+    // fontSize: 18,
+    // fontWeight: "bold",
+    marginBottom: 70,
   },
 });
 

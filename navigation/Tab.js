@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-
+import { Feather } from "@expo/vector-icons";
 const Tab = ({ color, tab, onPress, icon }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      {icon && <AntDesign name={icon} size={20} color={color} />}
+      {icon && <AntDesign name={icon} size={25} color={color} />}
       <Text style={{ color }}>{tab.name}</Text>
     </TouchableOpacity>
   );

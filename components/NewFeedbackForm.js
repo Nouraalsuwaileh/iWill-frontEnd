@@ -35,7 +35,7 @@ const NewFeedbackForm = ({ route, navigation }) => {
         style={styles.linearGradient}
       >
         <Button
-          title="Save New Feedback"
+          title="Save New Comment"
           color="#a1c4fd"
           onPress={() => {
             habitStore.createFeedback(feedback);

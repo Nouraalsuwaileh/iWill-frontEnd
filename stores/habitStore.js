@@ -69,7 +69,7 @@ class HabitStore {
       let res = await instance.delete(`/habit/${habitId}`);
       // console.log(res);
       this.habits = this.habits.filter((habit) => habit.id !== habitId);
-      navigation.goBack();
+      // navigation.goBack();
     } catch (error) {
       console.error("HabitStore -> deleteHabit -> error", error);
     }

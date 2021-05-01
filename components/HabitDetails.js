@@ -5,6 +5,7 @@ import FeedbackList from "./FeedbackList";
 import { observer } from "mobx-react";
 import {
   HabitDetailTitle,
+  HabitDetail,
   HabitDetailImage,
   HabitDetailWrapper,
 } from "../styles";
@@ -18,7 +19,7 @@ const HabitDetails = ({ route, navigation }) => {
   const [partner, setPartner] = useState();
 
   const { habit } = route.params;
-  if (habitStore.loading) return <Spinner />;
+  // if (habitStore.loading) return <Spinner />;
 
   if (!habit.partners || habit.partners.length < 1) habitPartners = "";
   else
@@ -35,10 +36,11 @@ const HabitDetails = ({ route, navigation }) => {
       <HabitDetailWrapper>
         {/* <HabitDetailImage source={{ uri: habit.image }} /> */}
         {/* <DeleteButton habit={habit} navigation={navigation} /> */}
+
         <HabitDetailTitle>{habit.name}</HabitDetailTitle>
-        <HabitDetailTitle>{habit.category}</HabitDetailTitle>
-        <HabitDetailTitle>{habit.details}</HabitDetailTitle>
-        <HabitDetailTitle>{habitPartners}</HabitDetailTitle>
+        <HabitDetail>{habit.category}</HabitDetail>
+        <HabitDetail>{habit.details}</HabitDetail>
+        <HabitDetail>{habitPartners}</HabitDetail>
         <View style={styles.icon}>
           <TextInput
             style={styles.textInput}
@@ -55,11 +57,6 @@ const HabitDetails = ({ route, navigation }) => {
             onPress={() => habitStore.addPartner(habit.id, partner, navigation)}
           />
         </View>
-        {/* <HabitDetailTitle>
-          {habit.partners?.map((partner) => `${partner.username} \n`) || ""}
-        </HabitDetailTitle> */}
-        {/* <HabitDetailTitle>{habit.daily}</HabitDetailTitle> */}
-        {/* <HabitDetailTitle>{habit.completed}</HabitDetailTitle> */}
 
         <FeedbackList name={habit.name} navigation={navigation} />
       </HabitDetailWrapper>

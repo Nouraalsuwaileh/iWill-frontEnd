@@ -89,7 +89,8 @@ class AuthStore {
         `/user/edit/${this.user.id}`,
         updatedUserData
       );
-      navigation.navigate("Profile");
+      // navigation.navigate("Profile");
+      navigation.goBack();
       const editedUser = response.data;
       console.log("authStore -> edited User", editedUser);
       for (const key in this.user) this.user[key] = editedUser[key];

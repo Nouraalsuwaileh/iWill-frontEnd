@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 
 export const HomeBackground = styled.ImageBackground`
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   background-color: blue;
 `;
 
@@ -84,6 +84,13 @@ export const HabitDetailTitle = styled.Text`
   font-weight: bold;
   font-size: 25px;
   text-align: center;
+  /* margin-top: 10; */
+`;
+export const HabitDetail = styled.Text`
+  font-weight: bold;
+  font-size: 15;
+  text-align: center;
+  margin-top: 20;
 `;
 
 export const HabitContent = styled.Text`

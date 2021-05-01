@@ -3,11 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // import progrees from "../components/Create";
 import Profile from "../ProfileScreen/Profile";
 import TabBar from "./TabBar";
-import Progrees from "../components/Progrees";
 import HabitList from "../components/HabitList";
 import PartnerHabitList from "../components/PartnerHabitList";
 // import Home from "../components/Home";
-
+import { Feather } from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
@@ -18,15 +17,15 @@ const TabNavigator = () => {
         initialParams={{ icon: "SignUp" }}
       /> */}
       <Tab.Screen
-        name="iWill"
+        // name="iWill"
+        name="My Habits"
         component={HabitList}
-        initialParams={{ icon: "search1" }}
+        initialParams={{ icon: "bars" }}
       />
-
       <Tab.Screen
         name="uWill"
         component={PartnerHabitList}
-        initialParams={{ icon: "search1" }}
+        initialParams={{ icon: "team" }}
       />
       {/* <Tab.Screen
         name="Progrees"
@@ -37,11 +36,6 @@ const TabNavigator = () => {
         name="Profile"
         component={Profile}
         initialParams={{ icon: "user" }}
-      />
-      <Tab.Screen
-        name="Progress"
-        component={Progrees}
-        initialParams={{ icon: "plus" }}
       />
     </Tab.Navigator>
   );
