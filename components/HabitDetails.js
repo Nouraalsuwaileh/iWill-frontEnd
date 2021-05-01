@@ -1,6 +1,6 @@
 import React from "react";
 import habitStore from "../stores/habitStore";
-import { Text, Button, StyleSheet } from "react-native";
+import { Text, Button, StyleSheet, View, TextInput } from "react-native";
 import FeedbackList from "./FeedbackList";
 import { observer } from "mobx-react";
 import {
@@ -11,8 +11,12 @@ import {
 import { Spinner } from "native-base";
 import { LinearGradient } from "expo-linear-gradient";
 import DeleteButton from "./DeleteButton";
+import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 
 const HabitDetails = ({ route, navigation }) => {
+  const [partner, setPartner] = useState();
+
   const { habit } = route.params;
   if (habitStore.loading) return <Spinner />;
 
@@ -35,6 +39,22 @@ const HabitDetails = ({ route, navigation }) => {
         <HabitDetailTitle>{habit.category}</HabitDetailTitle>
         <HabitDetailTitle>{habit.details}</HabitDetailTitle>
         <HabitDetailTitle>{habitPartners}</HabitDetailTitle>
+        <View style={styles.icon}>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Add Partner"
+            onChangeText={(value) => setPartner(value)}
+            autoCorrect={false}
+            autoCapitalize="none"
+            keyboardType="numeric"
+          />
+          <Ionicons
+            name="add-circle-sharp"
+            size={30}
+            color="black"
+            onPress={() => habitStore.addPartner(habit.id, partner, navigation)}
+          />
+        </View>
         {/* <HabitDetailTitle>
           {habit.partners?.map((partner) => `${partner.username} \n`) || ""}
         </HabitDetailTitle> */}
@@ -68,7 +88,7 @@ const styles = StyleSheet.create({
     // color: "rgba(31,178,204,1)",
     fontSize: 30,
     alignSelf: "center",
-    marginTop: 150,
+    // marginTop: 150,
     // alignItems: "center",
   },
   text: {

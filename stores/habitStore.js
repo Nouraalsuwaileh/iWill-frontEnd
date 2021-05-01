@@ -42,6 +42,17 @@ class HabitStore {
       console.error("HabitStore -> fetchPartnerHabits -> error", error);
     }
   };
+
+  addPartner = async (habitId, partner, navigation) => {
+    try {
+      await instance.put(`/habit/${habitId}/partner`, { username: partner });
+      console.log("Added partner username", partner);
+      navigation.replace("HabitDetails");
+    } catch (error) {
+      console.log("HabitStore -> addPartner -> error", error);
+    }
+  };
+
   createHabit = async (newHabit) => {
     try {
       const res = await instance.post("/habit", newHabit);
